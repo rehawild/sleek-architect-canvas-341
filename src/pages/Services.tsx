@@ -4,27 +4,27 @@ const Services = () => {
   const services = [
     {
       number: "01",
-      title: "architectural design",
+      title: "Architectural Design",
       description: "Thoughtful spaces shaped by context, craft, and clarity of vision"
     },
     {
       number: "02", 
-      title: "interior design",
+      title: "Interior Design",
       description: "Curated environments that balance function with refined aesthetics"
     },
     {
       number: "03",
-      title: "renovation · adaptive reuse",
+      title: "Renovation · Adaptive Reuse",
       description: "Breathing new life into existing structures with modern sensibility"
     },
     {
       number: "04",
-      title: "construction · project management",
+      title: "Construction · Project Management",
       description: "Seamless execution from concept to completion, on time and on budget"
     },
     {
       number: "05",
-      title: "consultation · advisory",
+      title: "Consultation · Advisory",
       description: "Strategic guidance for design direction, feasibility, and planning"
     }
   ];
@@ -36,9 +36,9 @@ const Services = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <div className="mb-20">
-              <h1 className="text-minimal text-muted-foreground mb-4">services</h1>
-              <h2 className="text-4xl md:text-6xl font-light text-architectural lowercase">
-                what we do
+              <h1 className="text-minimal text-muted-foreground mb-4">SERVICES</h1>
+              <h2 className="text-4xl md:text-6xl font-light text-architectural">
+                What We Do
               </h2>
             </div>
             
