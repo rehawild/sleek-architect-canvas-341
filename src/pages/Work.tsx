@@ -9,61 +9,14 @@ const Work = () => {
   const projects = [
     {
       image: project1,
-      title: "MINIMAL RESIDENCE",
-      location: "NEW YORK, 2024",
-      category: "RESIDENTIAL",
-      description: "A contemporary home focusing on light, space, and material honesty. The design emphasizes clean lines and natural materials.",
-      area: "450 SQM",
-      year: "2024"
-    },
-    {
-      image: project2,
-      title: "CORPORATE HEADQUARTERS",
-      location: "LONDON, 2023",
-      category: "COMMERCIAL",
-      description: "Modern office space emphasizing collaboration and natural elements. Features flexible workspaces and sustainable design principles.",
-      area: "1200 SQM",
-      year: "2023"
-    },
-    {
-      image: project3,
-      title: "CULTURAL CENTER",
-      location: "TOKYO, 2023",
-      category: "CULTURAL",
-      description: "Public architecture that bridges tradition with contemporary design. A space for community gathering and cultural exchange.",
-      area: "800 SQM",
-      year: "2023"
-    },
-    {
-      image: project1,
-      title: "URBAN LOFT",
-      location: "BERLIN, 2024",
-      category: "RESIDENTIAL",
-      description: "Industrial heritage meets contemporary living. Raw materials balanced with refined details.",
-      area: "180 SQM",
-      year: "2024"
-    },
-    {
-      image: project2,
-      title: "GALLERY SPACE",
-      location: "PARIS, 2022",
-      category: "CULTURAL",
-      description: "Minimalist gallery designed to showcase art without distraction. Pure white spaces with carefully controlled lighting.",
-      area: "600 SQM",
-      year: "2022"
-    },
-    {
-      image: project3,
-      title: "BOUTIQUE HOTEL",
-      location: "MILAN, 2023",
-      category: "HOSPITALITY",
-      description: "Luxury hospitality redefined through architectural restraint. Every detail carefully considered for guest experience.",
-      area: "2400 SQM",
-      year: "2023"
+      title: "BMW Electric Car Factory",
+      city: "Debrecen",
+      clients: ["BMW Manufacturing Hungary Kft.", "Kagel LTD."],
+      category: "INDUSTRIAL"
     }
   ];
 
-  const categories = ["ALL", "RESIDENTIAL", "COMMERCIAL", "CULTURAL", "HOSPITALITY"];
+  const categories = ["ALL", "INDUSTRIAL", "COMMERCIAL", "RESIDENTIAL", "CULTURAL"];
 
   const filteredProjects = activeCategory === "ALL" 
     ? projects 
@@ -141,29 +94,21 @@ const Work = () => {
                     </div>
                   </div>
                   
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="text-2xl lg:text-3xl font-light text-architectural mb-2 group-hover:text-muted-foreground transition-colors duration-500">
-                        {project.title}
-                      </h3>
-                      <p className="text-minimal text-muted-foreground">
-                        {project.location}
-                      </p>
-                    </div>
+                  <div className="space-y-4">
+                    <h3 className="text-2xl lg:text-3xl font-light text-architectural group-hover:text-muted-foreground transition-colors duration-500">
+                      {project.title}
+                    </h3>
                     
-                    <p className="text-muted-foreground leading-relaxed">
-                      {project.description}
+                    <p className="text-lg text-muted-foreground">
+                      {project.city}
                     </p>
                     
-                    <div className="flex gap-8 pt-4 border-t border-border">
-                      <div>
-                        <p className="text-minimal text-muted-foreground mb-1">AREA</p>
-                        <p className="text-foreground">{project.area}</p>
-                      </div>
-                      <div>
-                        <p className="text-minimal text-muted-foreground mb-1">YEAR</p>
-                        <p className="text-foreground">{project.year}</p>
-                      </div>
+                    <div className="pt-4 border-t border-border space-y-1">
+                      {project.clients.map((client, clientIndex) => (
+                        <p key={clientIndex} className="text-sm text-muted-foreground">
+                          {client}
+                        </p>
+                      ))}
                     </div>
                   </div>
                 </div>
