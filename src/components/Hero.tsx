@@ -14,13 +14,11 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-light text-white text-architectural mb-8 reveal">
-          MINIMAL
-          <br />
-          ARCHITECTURE
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-light text-white text-architectural mb-4 reveal lowercase">
+          tapan & partners
         </h1>
-        <p className="text-xl md:text-2xl text-white/80 font-light tracking-wide max-w-2xl mx-auto reveal-delayed">
-          Creating spaces that inspire through thoughtful design and uncompromising quality
+        <p className="text-2xl md:text-3xl lg:text-4xl text-white/80 font-light tracking-widest reveal-delayed lowercase">
+          architecture & more
         </p>
       </div>
       
