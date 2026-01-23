@@ -13,6 +13,13 @@ const Work = () => {
       city: "Debrecen",
       clients: ["BMW Manufacturing Hungary Kft.", "Kagel LTD."],
       category: "INDUSTRIAL"
+    },
+    {
+      image: project2,
+      title: "City Pearl Apartments",
+      city: "Budapest",
+      clients: ["CITY PEARL INTERNATIONAL Kft.", "APD"],
+      category: "RESIDENTIAL"
     }
   ];
 
