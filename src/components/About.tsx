@@ -18,8 +18,8 @@ const About = () => {
                 </p>
                 
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Founded in 2015, our studio has completed over 200 projects across 
-                  residential, commercial, and cultural sectors. Each project begins 
+                  Founded in 2024, our studio has completed over 20 projects across 
+                  residential, commercial, and industrial sectors. Each project begins 
                   with careful listening and ends with thoughtful execution.
                 </p>
               </div>
@@ -48,11 +48,11 @@ const About = () => {
                 <div className="grid grid-cols-2 gap-8">
                   <div>
                     <h4 className="text-minimal text-muted-foreground mb-2">FOUNDED</h4>
-                    <p className="text-xl">2015</p>
+                    <p className="text-xl">2024</p>
                   </div>
                   <div>
                     <h4 className="text-minimal text-muted-foreground mb-2">PROJECTS</h4>
-                    <p className="text-xl">200+</p>
+                    <p className="text-xl">20+</p>
                   </div>
                 </div>
               </div>

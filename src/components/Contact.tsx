@@ -15,24 +15,24 @@ const Contact = () => {
               <div className="space-y-8">
                 <div>
                   <h4 className="text-minimal text-muted-foreground mb-2">EMAIL</h4>
-                  <a href="mailto:hello@archstudio.com" className="text-xl hover:text-muted-foreground transition-colors duration-300">
-                    hello@archstudio.com
+                  <a href="mailto:admin@tapanpartners.com" className="text-xl hover:text-muted-foreground transition-colors duration-300">
+                    admin@tapanpartners.com
                   </a>
                 </div>
                 
                 <div>
                   <h4 className="text-minimal text-muted-foreground mb-2">PHONE</h4>
-                  <a href="tel:+1234567890" className="text-xl hover:text-muted-foreground transition-colors duration-300">
-                    +1 (234) 567-8900
+                  <a href="tel:+36702281815" className="text-xl hover:text-muted-foreground transition-colors duration-300">
+                    +36 70 228 18 15
                   </a>
                 </div>
                 
                 <div>
-                  <h4 className="text-minimal text-muted-foreground mb-2">STUDIO</h4>
+                  <h4 className="text-minimal text-muted-foreground mb-2">DESIGN OFFICE & SHOWROOM</h4>
                   <address className="text-xl not-italic">
-                    123 Design Avenue
+                    1056, Irányi u. 18
                     <br />
-                    New York, NY 10001
+                    Budapest, HU
                   </address>
                 </div>
               </div>
@@ -40,26 +40,29 @@ const Contact = () => {
             
             <div className="space-y-8">
               <div>
-                <h4 className="text-minimal text-muted-foreground mb-6">FOLLOW US</h4>
-                <div className="space-y-4">
-                  <a href="#" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
-                    Instagram
-                  </a>
-                  <a href="#" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
-                    LinkedIn
-                  </a>
-                  <a href="#" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
-                    Behance
-                  </a>
+                <h4 className="text-minimal text-muted-foreground mb-6">HOURS</h4>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-lg">
+                    <span>Monday – Friday</span>
+                    <span>Open</span>
+                  </div>
+                  <div className="flex justify-between text-lg text-muted-foreground">
+                    <span>Saturday – Sunday</span>
+                    <span>Closed</span>
+                  </div>
                 </div>
               </div>
               
-              <div className="pt-12 border-t border-border">
-                <p className="text-muted-foreground">
-                  We approach each project with curiosity, rigor, and a commitment to excellence. 
-                  Our process begins with listening, understanding your vision, and translating 
-                  it into spaces that exceed expectations.
-                </p>
+              <div className="pt-8 border-t border-border">
+                <h4 className="text-minimal text-muted-foreground mb-6">FOLLOW US</h4>
+                <div className="space-y-4">
+                  <a href="https://www.instagram.com/tapanandpartners" target="_blank" rel="noopener noreferrer" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
+                    Instagram
+                  </a>
+                  <a href="https://www.linkedin.com/company/tapan-and-partners" target="_blank" rel="noopener noreferrer" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
+                    LinkedIn
+                  </a>
+                </div>
               </div>
             </div>
           </div>
