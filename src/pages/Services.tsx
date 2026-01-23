@@ -1,31 +1,37 @@
 import Navigation from "@/components/Navigation";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
     {
       number: "01",
       title: "Architectural Design",
-      description: "Thoughtful spaces shaped by context, craft, and clarity of vision"
+      description: "Thoughtful spaces shaped by context, craft, and clarity of vision",
+      slug: "architectural-design"
     },
     {
       number: "02", 
       title: "Interior Design",
-      description: "Curated environments that balance function with refined aesthetics"
+      description: "Curated environments that balance function with refined aesthetics",
+      slug: "interior-design"
     },
     {
       number: "03",
       title: "Renovation · Adaptive Reuse",
-      description: "Breathing new life into existing structures with modern sensibility"
+      description: "Breathing new life into existing structures with modern sensibility",
+      slug: "renovation"
     },
     {
       number: "04",
       title: "Construction · Project Management",
-      description: "Seamless execution from concept to completion, on time and on budget"
+      description: "Seamless execution from concept to completion, on time and on budget",
+      slug: "construction"
     },
     {
       number: "05",
       title: "Consultation · Advisory",
-      description: "Strategic guidance for design direction, feasibility, and planning"
+      description: "Strategic guidance for design direction, feasibility, and planning",
+      slug: "consultation"
     }
   ];
 
@@ -44,7 +50,7 @@ const Services = () => {
             
             <div className="grid md:grid-cols-2 gap-x-20 gap-y-16">
               {services.map((service, index) => (
-                <div key={index} className="group">
+                <Link to={`/services/${service.slug}`} key={index} className="group block">
                   <div className="flex items-start space-x-6">
                     <span className="text-minimal text-muted-foreground font-medium">
                       {service.number}
@@ -58,7 +64,7 @@ const Services = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

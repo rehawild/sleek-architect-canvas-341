@@ -11,6 +11,11 @@ import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
+import ArchitecturalDesign from "./pages/services/ArchitecturalDesign";
+import InteriorDesign from "./pages/services/InteriorDesign";
+import Renovation from "./pages/services/Renovation";
+import Construction from "./pages/services/Construction";
+import Consultation from "./pages/services/Consultation";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +29,11 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/work" element={<Work />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/architectural-design" element={<ArchitecturalDesign />} />
+          <Route path="/services/interior-design" element={<InteriorDesign />} />
+          <Route path="/services/renovation" element={<Renovation />} />
+          <Route path="/services/construction" element={<Construction />} />
+          <Route path="/services/consultation" element={<Consultation />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
