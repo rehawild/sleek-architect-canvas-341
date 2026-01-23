@@ -1,26 +1,19 @@
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
 
 const Portfolio = () => {
   const projects = [
     {
       image: project1,
-      title: "MINIMAL RESIDENCE",
-      location: "NEW YORK, 2024",
-      description: "A contemporary home focusing on light, space, and material honesty"
+      title: "BMW Electric Car Factory",
+      city: "Debrecen",
+      clients: ["BMW Manufacturing Hungary Kft.", "Kagel LTD."]
     },
     {
       image: project2,
-      title: "CORPORATE HEADQUARTERS",
-      location: "LONDON, 2023",
-      description: "Modern office space emphasizing collaboration and natural elements"
-    },
-    {
-      image: project3,
-      title: "CULTURAL CENTER",
-      location: "TOKYO, 2023",
-      description: "Public architecture that bridges tradition with contemporary design"
+      title: "City Pearl Apartments",
+      city: "Budapest",
+      clients: ["CITY PEARL INTERNATIONAL Kft.", "APD"]
     }
   ];
 
@@ -47,20 +40,19 @@ const Portfolio = () => {
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 
-                <div className="mt-8 grid md:grid-cols-3 gap-8">
-                  <div>
-                    <h4 className="text-2xl font-light text-architectural mb-2">
-                      {project.title}
-                    </h4>
-                    <p className="text-minimal text-muted-foreground">
-                      {project.location}
-                    </p>
-                  </div>
-                  
-                  <div className="md:col-span-2">
-                    <p className="text-muted-foreground leading-relaxed">
-                      {project.description}
-                    </p>
+                <div className="mt-8 space-y-4">
+                  <h4 className="text-2xl font-light text-architectural">
+                    {project.title}
+                  </h4>
+                  <p className="text-lg text-muted-foreground">
+                    {project.city}
+                  </p>
+                  <div className="pt-4 border-t border-border space-y-1">
+                    {project.clients.map((client, clientIndex) => (
+                      <p key={clientIndex} className="text-sm text-muted-foreground">
+                        {client}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>
