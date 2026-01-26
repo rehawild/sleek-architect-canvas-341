@@ -1,10 +1,11 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const About = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Navigation />
-      <section className="pt-32 pb-32 bg-background">
+      <section className="pt-32 pb-32 bg-background flex-1">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-20 items-center">
@@ -91,6 +92,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

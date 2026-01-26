@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -53,15 +54,22 @@ const Services = () => {
           
           <div className="grid md:grid-cols-2 gap-x-20 gap-y-16">
             {services.map((service, index) => (
-              <Link to={`/services/${service.slug}`} key={index} className="group block">
+              <Link 
+                to={`/services/${service.slug}`} 
+                key={index} 
+                className="group block border-b border-transparent hover:border-border pb-6 transition-all duration-300"
+              >
                 <div className="flex items-start space-x-6">
                   <span className="text-minimal text-muted-foreground font-medium">
                     {service.number}
                   </span>
-                  <div>
-                    <h4 className="text-2xl font-light mb-4 text-architectural group-hover:text-muted-foreground transition-colors duration-500">
-                      {service.title}
-                    </h4>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-2xl font-light mb-4 text-architectural group-hover:text-muted-foreground transition-colors duration-500">
+                        {service.title}
+                      </h4>
+                      <ArrowRight className="w-5 h-5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                    </div>
                     <p className="text-muted-foreground leading-relaxed">
                       {service.description}
                     </p>
