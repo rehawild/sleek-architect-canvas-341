@@ -61,11 +61,11 @@ const FurnitureDesign = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-6 p-8 border border-architectural/20 rounded-lg hover:border-architectural/40 transition-colors duration-300 group"
                 >
-                  <div className="h-12 w-40 flex items-center">
+                  <div className="h-12 w-40 flex items-center justify-start">
                     <img 
                       src={currentLogo} 
                       alt="Mekan Furniture" 
-                      className="max-h-full max-w-full object-contain"
+                      className="h-10 w-auto object-contain"
                     />
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors">
