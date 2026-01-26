@@ -1,10 +1,12 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Navigation />
-      <section className="pt-32 pb-32 bg-background">
+      <section className="pt-32 pb-32 bg-background flex-1">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-20">
@@ -40,34 +42,39 @@ const Contact = () => {
                     </address>
                   </div>
                 </div>
+                
+                <div className="mt-12 space-y-8">
+                  <div>
+                    <h3 className="text-minimal text-muted-foreground mb-6">HOURS</h3>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-lg">
+                        <span>Monday – Friday</span>
+                        <span>Open</span>
+                      </div>
+                      <div className="flex justify-between text-lg text-muted-foreground">
+                        <span>Saturday – Sunday</span>
+                        <span>Closed</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-8 border-t border-border">
+                    <h3 className="text-minimal text-muted-foreground mb-6">FOLLOW US</h3>
+                    <div className="space-y-4">
+                      <a href="https://www.instagram.com/tapanandpartners" target="_blank" rel="noopener noreferrer" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
+                        Instagram
+                      </a>
+                      <a href="https://www.linkedin.com/company/tapan-and-partners" target="_blank" rel="noopener noreferrer" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
+                        LinkedIn
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
               
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-minimal text-muted-foreground mb-6">HOURS</h3>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-lg">
-                      <span>Monday – Friday</span>
-                      <span>Open</span>
-                    </div>
-                    <div className="flex justify-between text-lg text-muted-foreground">
-                      <span>Saturday – Sunday</span>
-                      <span>Closed</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="pt-8 border-t border-border">
-                  <h3 className="text-minimal text-muted-foreground mb-6">FOLLOW US</h3>
-                  <div className="space-y-4">
-                    <a href="https://www.instagram.com/tapanandpartners" target="_blank" rel="noopener noreferrer" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
-                      Instagram
-                    </a>
-                    <a href="https://www.linkedin.com/company/tapan-and-partners" target="_blank" rel="noopener noreferrer" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
-                      LinkedIn
-                    </a>
-                  </div>
-                </div>
+              <div>
+                <h3 className="text-minimal text-muted-foreground mb-6">SEND US A MESSAGE</h3>
+                <ContactForm />
               </div>
             </div>
             
@@ -89,6 +96,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
