@@ -1,7 +1,5 @@
 import { useParams, Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
 import { blogPosts } from "@/data/blogPosts";
 
 const BlogPost = () => {
@@ -10,9 +8,9 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-background flex flex-col">
+      <div className="min-h-screen bg-background">
         <Navigation />
-        <div className="pt-32 pb-32 flex-1">
+        <div className="pt-32 pb-32">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-6xl font-light text-architectural mb-8">
@@ -27,25 +25,25 @@ const BlogPost = () => {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background">
       <Navigation />
       
       {/* Article Header */}
-      <article className="pt-32 pb-32 flex-1">
+      <article className="pt-32 pb-32">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <Breadcrumb 
-              items={[
-                { label: "Blog", href: "/blog" },
-                { label: post.title }
-              ]} 
-            />
+            {/* Back Link */}
+            <Link 
+              to="/blog" 
+              className="inline-block text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300 mb-12"
+            >
+              ← BACK TO BLOG
+            </Link>
             
             {/* Article Meta */}
             <div className="mb-8">
@@ -147,8 +145,6 @@ const BlogPost = () => {
           </div>
         </div>
       </article>
-      
-      <Footer />
     </div>
   );
 };

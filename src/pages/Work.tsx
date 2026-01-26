@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
@@ -139,18 +137,16 @@ const Work = () => {
             <p className="text-xl text-muted-foreground mb-12">
               Let's discuss how we can bring your architectural vision to life
             </p>
-            <Link 
-              to="/contact" 
+            <a 
+              href="#contact" 
               className="inline-block text-minimal text-foreground hover:text-muted-foreground transition-colors duration-300 relative group"
             >
               GET IN TOUCH
               <span className="absolute bottom-0 left-0 w-full h-px bg-foreground group-hover:bg-muted-foreground transition-colors duration-300"></span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
-      
-      <Footer />
     </div>
   );
 };

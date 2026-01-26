@@ -1,22 +1,22 @@
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
-import { ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import mekanLogo from "@/assets/mekan-logo.png";
 
 const FurnitureDesign = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen">
       <Navigation />
-      <section className="pt-32 pb-32 bg-background flex-1">
+      <section className="pt-32 pb-32 bg-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <Breadcrumb 
-              items={[
-                { label: "Services", href: "/services" },
-                { label: "Furniture Design" }
-              ]} 
-            />
+            <Link 
+              to="/services" 
+              className="inline-flex items-center text-minimal text-muted-foreground hover:text-foreground transition-colors duration-300 mb-8"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Services
+            </Link>
             
             <div className="mb-12">
               <span className="text-minimal text-muted-foreground">06</span>
@@ -90,7 +90,6 @@ const FurnitureDesign = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

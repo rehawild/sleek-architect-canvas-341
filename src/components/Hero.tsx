@@ -1,14 +1,6 @@
 import heroImage from "@/assets/hero-architecture.jpg";
-import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
-  const handleScrollClick = () => {
-    const servicesSection = document.getElementById("services");
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -31,16 +23,12 @@ const Hero = () => {
       </div>
       
       {/* Scroll Indicator */}
-      <button 
-        onClick={handleScrollClick}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 reveal-delayed cursor-pointer group"
-        aria-label="Scroll to services"
-      >
-        <div className="flex flex-col items-center">
-          <ChevronDown className="w-8 h-8 text-white/60 animate-bounce group-hover:text-white transition-colors duration-300" />
-          <ChevronDown className="w-8 h-8 text-white/40 -mt-4 animate-bounce animation-delay-150 group-hover:text-white/60 transition-colors duration-300" />
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 reveal-delayed">
+        <div className="w-px h-16 bg-white/40" />
+        <div className="text-minimal text-white/60 mt-4 rotate-90 origin-center">
+          SCROLL
         </div>
-      </button>
+      </div>
     </section>
   );
 };
