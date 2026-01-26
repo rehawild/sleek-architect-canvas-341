@@ -24,7 +24,7 @@ const Portfolio = () => {
   return (
     <section id="work" className="py-32 bg-muted">
       <div className="container mx-auto px-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="mb-20">
             <h2 className="text-minimal text-muted-foreground mb-4">SELECTED WORK</h2>
             <h3 className="text-4xl md:text-6xl font-light text-architectural">
