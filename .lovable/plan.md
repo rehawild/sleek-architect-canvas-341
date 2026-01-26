@@ -1,48 +1,39 @@
 
 
-## Portfolio Section Layout Update
+## Navigation Update: Brand Name & Home Link
 
 ### Goal
-Revert the section width back to `max-w-7xl` and change the project cards to use a 2-column grid layout like the Work page, with smaller images.
+Update the navigation to display the full brand name "Tapan & Partners" and add "HOME" as the first navigation link for maximum clarity.
 
-### Changes to `src/components/Portfolio.tsx`
+### Changes to `src/components/Navigation.tsx`
 
-1. **Revert section width**: Change `max-w-5xl` back to `max-w-7xl`
+1. **Update logo text**: Change "T&P" to "Tapan & Partners" (line 30)
 
-2. **Change layout from stacked to grid**:
-   - Replace `space-y-32` with `grid md:grid-cols-2 gap-16 lg:gap-20`
+2. **Add HOME to navigation links**: Insert HOME as the first item in the `navLinks` array (line 10-15)
 
-3. **Reduce image height**: 
-   - Change `h-[70vh]` to `h-[50vh]` for more compact project cards
-
-4. **Adjust spacing**:
-   - Change `mt-8` to `mt-6` for tighter card layout
-
-### Visual Comparison
-
-| Current (Homepage) | After Update |
-|-------------------|--------------|
-| Full-width stacked | 2-column grid |
-| 70vh image height | 50vh image height |
-| max-w-5xl | max-w-7xl |
-
-### Technical Details
+### Updated Navigation Structure
 
 ```text
 Before:
-+------------------------------------------+
-|  [    Full Width Project Image    ]      |
-|  Title, City, Clients                    |
-|                                          |
-|  [    Full Width Project Image    ]      |
-|  Title, City, Clients                    |
-+------------------------------------------+
+[T&P]                    WORK | SERVICES | ABOUT | CONTACT    [Theme]
 
-After (matching Work page):
-+------------------------------------------+
-|  [ Project 1 ]     |     [ Project 2 ]   |
-|  Title, City       |     Title, City     |
-|  Clients           |     Clients         |
-+------------------------------------------+
+After:
+[Tapan & Partners]       HOME | WORK | SERVICES | ABOUT | CONTACT    [Theme]
 ```
+
+### Technical Details
+
+The `navLinks` array will be updated to:
+```text
+{ href: "/", label: "HOME" }      <- New first item
+{ href: "/work", label: "WORK" }
+{ href: "/services", label: "SERVICES" }
+{ href: "/about", label: "ABOUT" }
+{ href: "/contact", label: "CONTACT" }
+```
+
+The existing `isActive` function already handles the "/" path correctly, so HOME will show an active underline when on the homepage.
+
+### Files to Edit
+- `src/components/Navigation.tsx`
 
