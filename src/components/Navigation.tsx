@@ -8,6 +8,7 @@ const Navigation = () => {
   const location = useLocation();
 
   const navLinks = [
+    { href: "/", label: "HOME" },
     { href: "/work", label: "WORK" },
     { href: "/services", label: "SERVICES" },
     { href: "/about", label: "ABOUT" },
@@ -27,7 +28,7 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="text-minimal text-foreground hover:text-foreground/80 transition-colors duration-300">
-          T&P
+          Tapan & Partners
         </Link>
         
         <div className="hidden md:flex items-center space-x-12">
