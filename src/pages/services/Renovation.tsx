@@ -1,12 +1,24 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
+import serviceImage from "@/assets/service-renovation.jpg";
 
 const Renovation = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      <section className="pt-32 pb-32 bg-background flex-1">
+      
+      {/* Hero Image */}
+      <div className="w-full h-[50vh] relative overflow-hidden">
+        <img 
+          src={serviceImage} 
+          alt="Renovation and Adaptive Reuse" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 to-background" />
+      </div>
+      
+      <section className="py-20 bg-background flex-1">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <Breadcrumb 
