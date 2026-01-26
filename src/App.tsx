@@ -17,6 +17,7 @@ import Renovation from "./pages/services/Renovation";
 import Construction from "./pages/services/Construction";
 import Consultation from "./pages/services/Consultation";
 import FurnitureDesign from "./pages/services/FurnitureDesign";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/work" element={<Work />} />
