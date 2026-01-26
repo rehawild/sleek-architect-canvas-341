@@ -9,7 +9,12 @@ import serviceImage from "@/assets/service-furniture.jpg";
 
 const FurnitureDesign = () => {
   const { theme } = useTheme();
-  const currentLogo = theme === "dark" ? mekanLogoWhite : mekanLogo;
+  const prefersDark =
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-color-scheme: dark)")?.matches;
+  const isDarkTheme = theme === "dark" || (theme === "system" && prefersDark);
+
+  const currentLogo = isDarkTheme ? mekanLogoWhite : mekanLogo;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -61,11 +66,11 @@ const FurnitureDesign = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-6 p-8 border border-architectural/20 rounded-lg hover:border-architectural/40 transition-colors duration-300 group"
                 >
-                  <div className="h-12 w-40 flex items-center justify-start">
+                  <div className="h-12 w-48 shrink-0 flex items-center justify-start">
                     <img 
                       src={currentLogo} 
                       alt="Mekan Furniture" 
-                      className="h-10 w-auto object-contain"
+                      className={`h-10 w-auto object-contain ${isDarkTheme ? "scale-125 origin-left" : ""}`}
                     />
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground group-hover:text-foreground transition-colors">
