@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
@@ -13,24 +12,6 @@ const Contact = () => {
             <br />
             Extraordinary
           </h3>
-          
-          <div className="space-y-6 mb-12">
-            <a 
-              href="mailto:admin@tapanpartners.com" 
-              className="flex items-center justify-center gap-3 text-xl hover:text-muted-foreground transition-colors duration-300"
-            >
-              <Mail className="w-5 h-5" />
-              admin@tapanpartners.com
-            </a>
-            
-            <a 
-              href="tel:+36702281815" 
-              className="flex items-center justify-center gap-3 text-xl hover:text-muted-foreground transition-colors duration-300"
-            >
-              <Phone className="w-5 h-5" />
-              +36 70 228 18 15
-            </a>
-          </div>
           
           <Button asChild size="lg" className="px-12">
             <Link to="/contact">Get in Touch</Link>
