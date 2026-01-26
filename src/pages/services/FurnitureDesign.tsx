@@ -2,10 +2,15 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import { ExternalLink } from "lucide-react";
+import { useTheme } from "@/components/ThemeProvider";
 import mekanLogo from "@/assets/mekan-logo.png";
+import mekanLogoWhite from "@/assets/mekan-logo-white.png";
 import serviceImage from "@/assets/service-furniture.jpg";
 
 const FurnitureDesign = () => {
+  const { theme } = useTheme();
+  const currentLogo = theme === "dark" ? mekanLogoWhite : mekanLogo;
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -57,7 +62,7 @@ const FurnitureDesign = () => {
                   className="inline-flex items-center gap-6 p-8 border border-architectural/20 rounded-lg hover:border-architectural/40 transition-colors duration-300 group"
                 >
                   <img 
-                    src={mekanLogo} 
+                    src={currentLogo} 
                     alt="Mekan Furniture" 
                     className="h-12 object-contain"
                   />
