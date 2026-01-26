@@ -1,20 +1,20 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import PageTransition from "./PageTransition";
-import Index from "@/pages/Index";
-import Work from "@/pages/Work";
-import Services from "@/pages/Services";
-import About from "@/pages/About";
-import Contact from "@/pages/Contact";
-import Blog from "@/pages/Blog";
-import BlogPost from "@/pages/BlogPost";
-import NotFound from "@/pages/NotFound";
-import ArchitecturalDesign from "@/pages/services/ArchitecturalDesign";
-import InteriorDesign from "@/pages/services/InteriorDesign";
-import Renovation from "@/pages/services/Renovation";
-import Construction from "@/pages/services/Construction";
-import Consultation from "@/pages/services/Consultation";
-import FurnitureDesign from "@/pages/services/FurnitureDesign";
+ import { Routes, Route, useLocation } from "react-router-dom";
+ import { AnimatePresence } from "framer-motion";
+ import PageTransition from "./PageTransition";
+ import Index from "@/pages/Index";
+ import Work from "@/pages/Work";
+ import Services from "@/pages/Services";
+ import About from "@/pages/About";
+ import Contact from "@/pages/Contact";
+ import Blog from "@/pages/Blog";
+ import BlogPost from "@/pages/BlogPost";
+ import NotFound from "@/pages/NotFound";
+ import ArchitecturalDesign from "@/pages/services/ArchitecturalDesign";
+ import InteriorDesign from "@/pages/services/InteriorDesign";
+ import Renovation from "@/pages/services/Renovation";
+ import Construction from "@/pages/services/Construction";
+ import Consultation from "@/pages/services/Consultation";
+ import FurnitureDesign from "@/pages/services/FurnitureDesign";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
