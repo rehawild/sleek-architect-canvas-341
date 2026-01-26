@@ -1,5 +1,6 @@
 import { motion, Variants } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
+import PageSkeleton from "./PageSkeleton";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -19,19 +20,22 @@ const pageVariants: Variants = {
 
 const PageTransition = ({ children }: PageTransitionProps) => {
   return (
-    <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageVariants}
-      transition={{
-        type: "tween",
-        ease: "easeOut",
-        duration: 0.15,
-      }}
-    >
-      {children}
-    </motion.div>
+    <Suspense fallback={<PageSkeleton />}>
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={{
+          type: "tween",
+          ease: "easeOut",
+          duration: 0.15,
+        }}
+        style={{ minHeight: "100vh" }}
+      >
+        {children}
+      </motion.div>
+    </Suspense>
   );
 };
 
