@@ -16,6 +16,7 @@ import InteriorDesign from "./pages/services/InteriorDesign";
 import Renovation from "./pages/services/Renovation";
 import Construction from "./pages/services/Construction";
 import Consultation from "./pages/services/Consultation";
+import FurnitureDesign from "./pages/services/FurnitureDesign";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/services/renovation" element={<Renovation />} />
           <Route path="/services/construction" element={<Construction />} />
           <Route path="/services/consultation" element={<Consultation />} />
+          <Route path="/services/furniture-design" element={<FurnitureDesign />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />

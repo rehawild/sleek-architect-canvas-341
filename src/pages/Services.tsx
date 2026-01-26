@@ -32,6 +32,12 @@ const Services = () => {
       title: "Consultation · Advisory",
       description: "Strategic guidance for design direction, feasibility, and planning",
       slug: "consultation"
+    },
+    {
+      number: "06",
+      title: "Furniture Design",
+      description: "Bespoke furniture solutions in partnership with Mekan Furniture",
+      slug: "furniture-design"
     }
   ];
 
