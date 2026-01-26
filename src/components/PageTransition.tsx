@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ReactNode } from "react";
 
 interface PageTransitionProps {
   children: ReactNode;
 }
 
-const pageVariants = {
+const pageVariants: Variants = {
   initial: {
     opacity: 0,
     y: 20,
@@ -20,12 +20,6 @@ const pageVariants = {
   },
 };
 
-const pageTransition = {
-  type: "tween",
-  ease: [0.16, 1, 0.3, 1],
-  duration: 0.5,
-};
-
 const PageTransition = ({ children }: PageTransitionProps) => {
   return (
     <motion.div
@@ -33,7 +27,11 @@ const PageTransition = ({ children }: PageTransitionProps) => {
       animate="in"
       exit="out"
       variants={pageVariants}
-      transition={pageTransition}
+      transition={{
+        type: "tween",
+        ease: "easeOut",
+        duration: 0.4,
+      }}
     >
       {children}
     </motion.div>
