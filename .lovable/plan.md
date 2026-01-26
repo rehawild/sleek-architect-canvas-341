@@ -1,39 +1,61 @@
 
 
-## Navigation Update: Brand Name & Home Link
+## Simplify Homepage Contact Section
 
 ### Goal
-Update the navigation to display the full brand name "Tapan & Partners" and add "HOME" as the first navigation link for maximum clarity.
+Reduce the homepage Contact section to a focused, minimal design with just email, phone, and a prominent CTA button linking to the full Contact page.
 
-### Changes to `src/components/Navigation.tsx`
-
-1. **Update logo text**: Change "T&P" to "Tapan & Partners" (line 30)
-
-2. **Add HOME to navigation links**: Insert HOME as the first item in the `navLinks` array (line 10-15)
-
-### Updated Navigation Structure
+### Current vs. New Layout
 
 ```text
-Before:
-[T&P]                    WORK | SERVICES | ABOUT | CONTACT    [Theme]
+Current Homepage Contact:
++------------------------------------------+
+| GET IN TOUCH                             |
+| Let's Create Something Extraordinary     |
+|                                          |
+| EMAIL: admin@tapanpartners.com           |
+| PHONE: +36 70 228 18 15                  |
+| ADDRESS: 1056, Irányi u. 18, Budapest    |
+|                                          |
+| HOURS: Mon-Fri Open, Sat-Sun Closed      |
+| FOLLOW US: Instagram, LinkedIn           |
++------------------------------------------+
 
-After:
-[Tapan & Partners]       HOME | WORK | SERVICES | ABOUT | CONTACT    [Theme]
+Simplified Homepage Contact:
++------------------------------------------+
+| GET IN TOUCH                             |
+| Let's Create Something Extraordinary     |
+|                                          |
+|    [Email Icon] admin@tapanpartners.com  |
+|    [Phone Icon] +36 70 228 18 15         |
+|                                          |
+|    [ Get in Touch ] <- Button to /contact|
++------------------------------------------+
 ```
+
+### Changes to `src/components/Contact.tsx`
+
+1. **Remove address section** (lines 30-37)
+2. **Remove hours section** (lines 41-53)
+3. **Remove social links section** (lines 56-65)
+4. **Simplify layout** - Change from 2-column grid to centered single column
+5. **Add "Get in Touch" button** - Link component from react-router-dom to `/contact`
+6. **Add Lucide icons** - Mail and Phone icons for visual clarity
 
 ### Technical Details
 
-The `navLinks` array will be updated to:
-```text
-{ href: "/", label: "HOME" }      <- New first item
-{ href: "/work", label: "WORK" }
-{ href: "/services", label: "SERVICES" }
-{ href: "/about", label: "ABOUT" }
-{ href: "/contact", label: "CONTACT" }
-```
+**Imports to add:**
+- `Link` from `react-router-dom`
+- `Mail`, `Phone` from `lucide-react`
 
-The existing `isActive` function already handles the "/" path correctly, so HOME will show an active underline when on the homepage.
+**New structure:**
+- Centered content with `text-center` alignment
+- Email and phone displayed inline with icons
+- Prominent button using the existing Button component with `asChild` for Link wrapper
 
 ### Files to Edit
-- `src/components/Navigation.tsx`
+- `src/components/Contact.tsx`
+
+### Result
+The homepage Contact section becomes a teaser that encourages users to visit the full Contact page for complete details (address, hours, social links, contact form, and map).
 
