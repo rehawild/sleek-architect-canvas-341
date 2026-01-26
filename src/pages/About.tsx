@@ -67,7 +67,7 @@ const About = () => {
             {/* Our Team Section */}
             <div className="mt-32">
               <h2 className="text-minimal text-muted-foreground mb-8">OUR TEAM</h2>
-              <div className="grid md:grid-cols-2 gap-12">
+              <div className="grid md:grid-cols-3 gap-12">
                 <div className="group">
                   <div className="aspect-[3/4] bg-muted mb-6 overflow-hidden">
                     <div className="w-full h-full bg-gradient-to-br from-muted to-muted-foreground/20 flex items-center justify-center">
@@ -86,6 +86,16 @@ const About = () => {
                   </div>
                   <h3 className="text-2xl font-light text-architectural mb-2">Meltem Akman Tapan</h3>
                   <p className="text-muted-foreground">Co-Founder, MSc. Architect</p>
+                </div>
+                
+                <div className="group">
+                  <div className="aspect-[3/4] bg-muted mb-6 overflow-hidden">
+                    <div className="w-full h-full bg-gradient-to-br from-muted to-muted-foreground/20 flex items-center justify-center">
+                      <span className="text-6xl font-light text-muted-foreground/40">AH</span>
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-light text-architectural mb-2">Alexa Harkai</h3>
+                  <p className="text-muted-foreground">Partner</p>
                 </div>
               </div>
             </div>
