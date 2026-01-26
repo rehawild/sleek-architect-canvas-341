@@ -24,7 +24,7 @@ const Portfolio = () => {
   return (
     <section id="work" className="py-32 bg-muted">
       <div className="container mx-auto px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-20">
             <h2 className="text-minimal text-muted-foreground mb-4">SELECTED WORK</h2>
             <h3 className="text-4xl md:text-6xl font-light text-architectural">
@@ -32,7 +32,7 @@ const Portfolio = () => {
             </h3>
           </div>
           
-          <div className="space-y-32">
+          <div className="grid md:grid-cols-2 gap-16 lg:gap-20">
             {projects.map((project, index) => (
               <Link 
                 to="/work" 
@@ -43,7 +43,7 @@ const Portfolio = () => {
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-[70vh] object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-[50vh] object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
@@ -56,7 +56,7 @@ const Portfolio = () => {
                   </div>
                 </div>
                 
-                <div className="mt-8 space-y-4">
+                <div className="mt-6 space-y-4">
                   <div className="flex items-center justify-between">
                     <h4 className="text-2xl font-light text-architectural group-hover:text-muted-foreground transition-colors duration-500">
                       {project.title}
