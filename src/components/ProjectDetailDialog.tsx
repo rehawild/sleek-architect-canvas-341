@@ -1,0 +1,150 @@
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import type { Project } from "@/data/projects";
+
+interface ProjectDetailDialogProps {
+  project: Project | null;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialogProps) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  if (!project) return null;
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === project.gallery.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => 
+      prev === 0 ? project.gallery.length - 1 : prev - 1
+    );
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-5xl w-[95vw] max-h-[90vh] overflow-y-auto p-0 gap-0">
+        <DialogHeader className="sr-only">
+          <DialogTitle>{project.title}</DialogTitle>
+        </DialogHeader>
+        
+        {/* Gallery Section */}
+        <div className="relative aspect-[16/9] w-full bg-muted">
+          <img
+            src={project.gallery[currentImageIndex]}
+            alt={`${project.title} - Image ${currentImageIndex + 1}`}
+            className="w-full h-full object-cover"
+          />
+          
+          {project.gallery.length > 1 && (
+            <>
+              <button
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm p-2 rounded-full hover:bg-background transition-colors"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm p-2 rounded-full hover:bg-background transition-colors"
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+              
+              {/* Image indicators */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {project.gallery.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentImageIndex ? "bg-background" : "bg-background/50"
+                    }`}
+                    aria-label={`Go to image ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+          
+          {/* Category Badge */}
+          <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm px-4 py-2">
+            <span className="text-minimal text-foreground">{project.category}</span>
+          </div>
+        </div>
+        
+        {/* Content Section */}
+        <div className="p-8 md:p-12 space-y-8">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-light text-architectural mb-2">
+                {project.title}
+              </h2>
+              <p className="text-xl text-muted-foreground">{project.city}</p>
+            </div>
+            <div className="text-right">
+              <span className="text-minimal text-muted-foreground">YEAR</span>
+              <p className="text-xl font-light text-architectural">{project.year}</p>
+            </div>
+          </div>
+          
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            {project.description}
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8 pt-6 border-t border-border">
+            <div>
+              <h3 className="text-minimal text-muted-foreground mb-4">CLIENTS</h3>
+              <ul className="space-y-2">
+                {project.clients.map((client, index) => (
+                  <li key={index} className="text-foreground">{client}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-minimal text-muted-foreground mb-4">SERVICES</h3>
+              <ul className="space-y-2">
+                {project.services.map((service, index) => (
+                  <li key={index} className="text-foreground">{service}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          
+          {/* Thumbnail Gallery */}
+          {project.gallery.length > 1 && (
+            <div className="pt-6 border-t border-border">
+              <h3 className="text-minimal text-muted-foreground mb-4">GALLERY</h3>
+              <div className="grid grid-cols-4 gap-4">
+                {project.gallery.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`aspect-square overflow-hidden transition-opacity ${
+                      index === currentImageIndex ? "ring-2 ring-foreground" : "opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`${project.title} thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+};
+
+export default ProjectDetailDialog;

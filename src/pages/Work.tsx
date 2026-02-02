@@ -2,34 +2,24 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
+import ProjectDetailDialog from "@/components/ProjectDetailDialog";
+import { projects, type Project } from "@/data/projects";
 
 const Work = () => {
   const [activeCategory, setActiveCategory] = useState("ALL");
-  const projects = [
-    {
-      image: project1,
-      title: "BMW Electric Car Factory",
-      city: "Debrecen",
-      clients: ["BMW Manufacturing Hungary Kft.", "Kagel LTD."],
-      category: "INDUSTRIAL"
-    },
-    {
-      image: project2,
-      title: "City Pearl Apartments",
-      city: "Budapest",
-      clients: ["CITY PEARL INTERNATIONAL Kft.", "APD"],
-      category: "RESIDENTIAL"
-    }
-  ];
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const categories = ["ALL", "INDUSTRIAL", "COMMERCIAL", "RESIDENTIAL", "CULTURAL"];
 
   const filteredProjects = activeCategory === "ALL" 
     ? projects 
     : projects.filter(project => project.category === activeCategory);
+  
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+    setDialogOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -86,7 +76,11 @@ const Work = () => {
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 lg:gap-20">
               {filteredProjects.map((project, index) => (
-                <div key={index} className="group cursor-pointer">
+                <div 
+                  key={index} 
+                  className="group cursor-pointer"
+                  onClick={() => handleProjectClick(project)}
+                >
                   <div className="relative overflow-hidden mb-8">
                     <img 
                       src={project.image} 
@@ -149,6 +143,12 @@ const Work = () => {
           </div>
         </div>
       </section>
+      
+      <ProjectDetailDialog 
+        project={selectedProject}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
       
       <Footer />
     </div>
