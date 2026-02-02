@@ -1,25 +1,16 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
+import ProjectDetailDialog from "@/components/ProjectDetailDialog";
+import { projects, type Project } from "@/data/projects";
 
 const Portfolio = () => {
-  const projects = [
-    {
-      image: project1,
-      title: "BMW Electric Car Factory",
-      city: "Debrecen",
-      clients: ["BMW Manufacturing Hungary Kft.", "Kagel LTD."],
-      slug: "bmw-factory"
-    },
-    {
-      image: project2,
-      title: "City Pearl Apartments",
-      city: "Budapest",
-      clients: ["CITY PEARL INTERNATIONAL Kft.", "APD"],
-      slug: "city-pearl"
-    }
-  ];
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+    setDialogOpen(true);
+  };
 
   return (
     <section id="work" className="py-32 bg-muted">
@@ -34,10 +25,10 @@ const Portfolio = () => {
           
           <div className="grid md:grid-cols-2 gap-16 lg:gap-20">
             {projects.map((project, index) => (
-              <Link 
-                to="/work" 
+              <div 
                 key={index} 
                 className="group block cursor-pointer"
+                onClick={() => handleProjectClick(project)}
               >
                 <div className="relative overflow-hidden">
                   <img 
@@ -74,11 +65,17 @@ const Portfolio = () => {
                     ))}
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
       </div>
+      
+      <ProjectDetailDialog 
+        project={selectedProject}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
     </section>
   );
 };
