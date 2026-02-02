@@ -144,6 +144,12 @@ const Work = () => {
         </div>
       </section>
       
+      <ProjectDetailDialog 
+        project={selectedProject}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+      />
+      
       <Footer />
     </div>
   );
