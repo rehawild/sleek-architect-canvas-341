@@ -1,4 +1,5 @@
-import project1 from "@/assets/project-1.jpg";
+import bmwFactory1 from "@/assets/bmw-factory-1.jpg";
+import bmwFactory2 from "@/assets/bmw-factory-2.jpg";
 import cityPearl1 from "@/assets/city-pearl-1.jpg";
 import cityPearl2 from "@/assets/city-pearl-2.jpg";
 import cityPearl3 from "@/assets/city-pearl-3.jpg";
