@@ -1,61 +1,51 @@
 
 
-## Simplify Homepage Contact Section
+## Overlay Thumbnail Gallery Navigation
 
-### Goal
-Reduce the homepage Contact section to a focused, minimal design with just email, phone, and a prominent CTA button linking to the full Contact page.
+### What We're Building
+Moving the gallery thumbnail selector from below the content section to **inside the main image area**, positioned at the bottom with a semi-transparent background. This is a common "filmstrip overlay" pattern that makes gallery navigation more accessible, especially on smaller screens.
 
-### Current vs. New Layout
+### Visual Layout
 
 ```text
-Current Homepage Contact:
-+------------------------------------------+
-| GET IN TOUCH                             |
-| Let's Create Something Extraordinary     |
-|                                          |
-| EMAIL: admin@tapanpartners.com           |
-| PHONE: +36 70 228 18 15                  |
-| ADDRESS: 1056, Irányi u. 18, Budapest    |
-|                                          |
-| HOURS: Mon-Fri Open, Sat-Sun Closed      |
-| FOLLOW US: Instagram, LinkedIn           |
-+------------------------------------------+
-
-Simplified Homepage Contact:
-+------------------------------------------+
-| GET IN TOUCH                             |
-| Let's Create Something Extraordinary     |
-|                                          |
-|    [Email Icon] admin@tapanpartners.com  |
-|    [Phone Icon] +36 70 228 18 15         |
-|                                          |
-|    [ Get in Touch ] <- Button to /contact|
-+------------------------------------------+
++---------------------------------------+
+|  [Category Badge]                 [X] |
+|                                       |
+|         Main Image/Video              |
+|                                       |
+|  [<]                            [>]   |
+|  +-------------------------------+    |
+|  | [thumb] [thumb] [thumb] [vid] |    |  <- Semi-transparent overlay
+|  +-------------------------------+    |
++---------------------------------------+
+|  Project Title              YEAR      |
+|  City                       2024      |
+|  ...                                  |
 ```
 
-### Changes to `src/components/Contact.tsx`
+### Changes
 
-1. **Remove address section** (lines 30-37)
-2. **Remove hours section** (lines 41-53)
-3. **Remove social links section** (lines 56-65)
-4. **Simplify layout** - Change from 2-column grid to centered single column
-5. **Add "Get in Touch" button** - Link component from react-router-dom to `/contact`
-6. **Add Lucide icons** - Mail and Phone icons for visual clarity
+1. **Remove the separate "GALLERY" section** at the bottom of the content area (lines 140-170)
+
+2. **Add thumbnail strip overlay** inside the main gallery section:
+   - Position at the bottom of the image area
+   - Semi-transparent dark/light background with backdrop blur
+   - Horizontally scrollable for many items
+   - Smaller thumbnails (around 48-56px) that fit well on mobile
+   - Current selection highlighted with a border/ring
+   - Video thumbnails will show a small play icon overlay
+
+3. **Keep the existing dot indicators** as a fallback for very small screens or as secondary navigation
+
+4. **Responsive behavior**:
+   - On mobile: thumbnails slightly smaller, scrollable horizontally
+   - On desktop: centered thumbnails with comfortable spacing
 
 ### Technical Details
 
-**Imports to add:**
-- `Link` from `react-router-dom`
-- `Mail`, `Phone` from `lucide-react`
-
-**New structure:**
-- Centered content with `text-center` alignment
-- Email and phone displayed inline with icons
-- Prominent button using the existing Button component with `asChild` for Link wrapper
-
-### Files to Edit
-- `src/components/Contact.tsx`
-
-### Result
-The homepage Contact section becomes a teaser that encourages users to visit the full Contact page for complete details (address, hours, social links, contact form, and map).
-
+The implementation will:
+- Use `overflow-x-auto` for horizontal scrolling when there are many items
+- Apply `bg-background/60 backdrop-blur-sm` for the overlay effect
+- Use `flex` layout with `gap-2` for thumbnail spacing
+- Add a `Play` icon from lucide-react for video thumbnail indicators
+- Keep thumbnails at `aspect-square` with `object-cover` for consistent sizing
