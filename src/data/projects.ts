@@ -13,6 +13,8 @@ import familyHouse2 from "@/assets/family-house-2.jpg";
 import familyHouse3 from "@/assets/family-house-3.jpg";
 import familyHouseVideo1 from "@/assets/family-house-video-1.mp4";
 import familyHouseVideo2 from "@/assets/family-house-video-2.mp4";
+import szellKalmanRestaurant1 from "@/assets/szell-kalman-restaurant-1.jpg";
+import szellKalmanRestaurant2 from "@/assets/szell-kalman-restaurant-2.jpg";
 
 export interface GalleryItem {
   type: "image" | "video";
@@ -85,6 +87,21 @@ export const projects: Project[] = [
       { type: "image", src: familyHouse3 },
       { type: "video", src: familyHouseVideo1 },
       { type: "video", src: familyHouseVideo2 }
+    ]
+  },
+  {
+    id: "szell-kalman-restaurant",
+    image: szellKalmanRestaurant1,
+    title: "Restaurant at Széll Kálmán Tér",
+    city: "Budapest",
+    clients: ["Private Client"],
+    category: "COMMERCIAL",
+    year: "2025-2026",
+    description: "A contemporary restaurant space located at the iconic Széll Kálmán Tér in Budapest. Currently in rough construction phase, featuring exposed steel beam structure and industrial architectural elements that will define the venue's distinctive character.",
+    services: ["Interior Design", "Construction Supervision"],
+    gallery: [
+      { type: "image", src: szellKalmanRestaurant1 },
+      { type: "image", src: szellKalmanRestaurant2 }
     ]
   }
 ];
