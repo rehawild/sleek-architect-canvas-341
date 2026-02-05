@@ -15,6 +15,10 @@ interface ProjectDetailDialogProps {
 
 const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialogProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const isMobile = useIsMobile();
+  
+  const showDots = isMobile && project && project.gallery.length > MOBILE_DOT_THRESHOLD;
+  const showGradients = !isMobile && project && project.gallery.length > DESKTOP_GRADIENT_THRESHOLD;
 
   // Reset index when project changes or dialog opens
   useEffect(() => {
