@@ -44,21 +44,21 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
         
         {/* Gallery Section */}
         <div className="relative aspect-[16/9] w-full bg-muted">
-          {project.gallery[currentImageIndex].type === "video" ? (
+          {currentItem?.type === "video" ? (
             <video
-              src={project.gallery[currentImageIndex].src}
+              src={currentItem.src}
               className="w-full h-full object-cover"
               controls
               autoPlay
               muted
             />
-          ) : (
+          ) : currentItem ? (
             <img
-              src={project.gallery[currentImageIndex].src}
+              src={currentItem.src}
               alt={`${project.title} - Image ${currentImageIndex + 1}`}
               className="w-full h-full object-cover"
             />
-          )}
+          ) : null}
           
           {project.gallery.length > 1 && (
             <>
