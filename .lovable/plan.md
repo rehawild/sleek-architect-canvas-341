@@ -1,59 +1,43 @@
 
 
-## True Gradient Fade for Thumbnail Strip
+## Fix Thumbnail Auto-Centering in Gallery Strip
 
 ### The Problem
-The current implementation uses `bg-gradient-to-r from-black/60 to-transparent` which simply overlays a dark gradient on top of the thumbnails. This creates a darkening effect, not a true fade-to-transparency effect where the thumbnails themselves become transparent at the edges.
+The centering logic exists but isn't working because:
+
+1. **Timing issue**: The `useEffect` runs before the thumbnail container is fully rendered/measured
+2. **Initial render race condition**: When the dialog opens, React renders the component but the DOM might not be ready for scroll calculations
 
 ### The Solution
-Use CSS `mask-image` to create a true fade effect. This technique makes the actual content fade to transparent at the edges, rather than putting a colored overlay on top.
-
-### Visual Difference
-
-**Current (dark overlay):**
-```text
-[dark][thumb][thumb][thumb][thumb][dark]
-  ↑                                  ↑
-  Just darkened, still visible
-```
-
-**Desired (true fade):**
-```text
-  ░░▒▓[thumb][thumb][thumb][thumb]▓▒░░
-  ↑                                  ↑
-  Actually fading to transparent
-```
-
-### Implementation
-
-Replace the gradient overlay divs with a CSS mask on the thumbnail container itself:
-
-```tsx
-<div 
-  className="flex gap-1.5 px-3 py-2 bg-black/50 backdrop-blur-md rounded-full overflow-x-auto scrollbar-hide"
-  style={showGradients ? {
-    maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-    WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
-  } : undefined}
->
-  {/* thumbnails */}
-</div>
-```
+Add a small delay to ensure the container is rendered and measured before attempting to scroll. Also ensure the effect reruns when the dialog opens.
 
 ### Changes to `src/components/ProjectDetailDialog.tsx`
 
-1. **Remove the gradient overlay divs** - Delete the left and right gradient `<div>` elements (lines 112-114 and 150-153)
+**Update the centering useEffect:**
 
-2. **Apply mask-image to the thumbnail container** - Add inline style with `maskImage` CSS property that creates a true fade from transparent on both edges
+```tsx
+// Center the selected thumbnail
+useEffect(() => {
+  if (thumbnailContainerRef.current && project && !showDots) {
+    // Small delay to ensure container is rendered and measured
+    const timeoutId = setTimeout(() => {
+      const container = thumbnailContainerRef.current;
+      if (!container) return;
+      
+      const itemWidth = THUMBNAIL_SIZE + THUMBNAIL_GAP;
+      const containerWidth = container.clientWidth;
+      const scrollPosition = (currentImageIndex * itemWidth) - (containerWidth / 2) + (THUMBNAIL_SIZE / 2);
+      container.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    }, 50);
+    
+    return () => clearTimeout(timeoutId);
+  }
+}, [currentImageIndex, project, showDots, open]);
+```
 
-3. **Keep the wrapper `<div className="relative">`** - Still needed for positioning, but no longer for gradient overlays
-
-### Technical Details
-
-The CSS `mask-image` property works by using a gradient as a transparency mask:
-- `transparent` at the edges = content becomes fully transparent
-- `black` in the middle = content is fully visible
-- The gradient creates a smooth transition between visible and transparent
-
-The `15%` and `85%` values control how far into the container the fade extends.
+**Key fixes:**
+- Add `setTimeout` with 50ms delay to ensure DOM is ready
+- Add `open` to dependency array so it runs when dialog opens
+- Add cleanup function to prevent memory leaks
+- Add null check inside timeout callback
 
