@@ -153,7 +153,6 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
                       )}
                     </div>
                   )}
-                </div>
               </div>
             </>
           )}
