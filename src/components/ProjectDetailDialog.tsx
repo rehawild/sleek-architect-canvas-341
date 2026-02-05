@@ -43,11 +43,11 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
         </DialogHeader>
         
         {/* Gallery Section */}
-        <div className="relative aspect-[16/9] w-full bg-muted">
+        <div className="relative aspect-[16/9] w-full bg-muted flex items-center justify-center">
           {currentItem?.type === "video" ? (
             <video
               src={currentItem.src}
-              className="w-full h-full object-cover"
+              className="max-w-full max-h-full object-contain"
               controls
               autoPlay
               muted
@@ -56,7 +56,7 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
             <img
               src={currentItem.src}
               alt={`${project.title} - Image ${currentImageIndex + 1}`}
-              className="w-full h-full object-cover"
+              className="max-w-full max-h-full object-contain"
             />
           ) : null}
           
