@@ -8,6 +8,8 @@ import cityPearl5 from "@/assets/city-pearl-5.jpg";
 import familyHouse1 from "@/assets/family-house-1.jpg";
 import familyHouse2 from "@/assets/family-house-2.jpg";
 import familyHouse3 from "@/assets/family-house-3.jpg";
+import familyHouseVideo1 from "@/assets/family-house-video-1.mp4";
+import familyHouseVideo2 from "@/assets/family-house-video-2.mp4";
 
 export interface Project {
   id: string;
