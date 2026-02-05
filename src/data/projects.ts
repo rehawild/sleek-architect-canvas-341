@@ -11,6 +11,11 @@ import familyHouse3 from "@/assets/family-house-3.jpg";
 import familyHouseVideo1 from "@/assets/family-house-video-1.mp4";
 import familyHouseVideo2 from "@/assets/family-house-video-2.mp4";
 
+export interface GalleryItem {
+  type: "image" | "video";
+  src: string;
+}
+
 export interface Project {
   id: string;
   image: string;
@@ -21,7 +26,7 @@ export interface Project {
   year: string;
   description: string;
   services: string[];
-  gallery: string[];
+  gallery: GalleryItem[];
 }
 
 export const projects: Project[] = [
