@@ -112,6 +112,7 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
                       )}
                     </button>
                   ))}
+                </div>
               </div>
               )}
             </>
