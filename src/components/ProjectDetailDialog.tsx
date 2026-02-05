@@ -20,8 +20,9 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
   const isMobile = useIsMobile();
   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
   
-  const showDots = isMobile && project && project.gallery.length > MOBILE_DOT_THRESHOLD;
-  const showGradients = !isMobile && project && project.gallery.length > DESKTOP_GRADIENT_THRESHOLD;
+  const galleryLength = project?.gallery.length ?? 0;
+  const showDots = isMobile && galleryLength > MOBILE_DOT_THRESHOLD;
+  const showGradients = !isMobile && galleryLength > DESKTOP_GRADIENT_THRESHOLD;
 
   // Reset index when project changes or dialog opens
   useEffect(() => {
@@ -41,21 +42,21 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
     }
   }, [currentImageIndex, project, showDots]);
 
-  if (!project) return null;
-
-  const currentItem = project.gallery[currentImageIndex];
-
   const nextImage = useCallback(() => {
     setCurrentImageIndex((prev) => 
-      prev === project.gallery.length - 1 ? 0 : prev + 1
+      prev === galleryLength - 1 ? 0 : prev + 1
     );
-  }, [project.gallery.length]);
+  }, [galleryLength]);
 
   const prevImage = useCallback(() => {
     setCurrentImageIndex((prev) => 
-      prev === 0 ? project.gallery.length - 1 : prev - 1
+      prev === 0 ? galleryLength - 1 : prev - 1
     );
-  }, [project.gallery.length]);
+  }, [galleryLength]);
+
+  if (!project) return null;
+
+  const currentItem = project.gallery[currentImageIndex];
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
