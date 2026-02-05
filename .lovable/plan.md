@@ -1,51 +1,85 @@
 
 
-## Overlay Thumbnail Gallery Navigation
+## Responsive Gallery Navigation with Dot Indicators & Gradient Fade
 
 ### What We're Building
-Moving the gallery thumbnail selector from below the content section to **inside the main image area**, positioned at the bottom with a semi-transparent background. This is a common "filmstrip overlay" pattern that makes gallery navigation more accessible, especially on smaller screens.
+Enhancing the gallery thumbnail strip with two improvements:
+1. **Mobile dot indicators** - On smaller screens, replace thumbnails with minimal dot indicators when there are many items (saves space)
+2. **Gradient fade edges** - On desktop when thumbnails overflow, add smooth gradient masks on left/right edges to indicate more content
 
 ### Visual Layout
 
+**Desktop (thumbnails with gradient edges when overflowing):**
 ```text
-+---------------------------------------+
-|  [Category Badge]                 [X] |
-|                                       |
-|         Main Image/Video              |
-|                                       |
-|  [<]                            [>]   |
-|  +-------------------------------+    |
-|  | [thumb] [thumb] [thumb] [vid] |    |  <- Semi-transparent overlay
-|  +-------------------------------+    |
-+---------------------------------------+
-|  Project Title              YEAR      |
-|  City                       2024      |
-|  ...                                  |
++-----------------------------------------------+
+|                                               |
+|              Main Image                       |
+|                                               |
+|  [<]                                    [>]   |
+|     ░▒[thumb][thumb][thumb][thumb][thumb]▒░   |
+|       ↑                               ↑       |
+|    gradient                       gradient    |
++-----------------------------------------------+
 ```
 
-### Changes
+**Mobile (dot indicators for many items):**
+```text
++---------------------------+
+|                           |
+|       Main Image          |
+|                           |
+|  [<]                [>]   |
+|       ● ○ ○ ○ ○ ○ ●       |
++---------------------------+
+```
 
-1. **Remove the separate "GALLERY" section** at the bottom of the content area (lines 140-170)
+### Changes to `src/components/ProjectDetailDialog.tsx`
 
-2. **Add thumbnail strip overlay** inside the main gallery section:
-   - Position at the bottom of the image area
-   - Semi-transparent dark/light background with backdrop blur
-   - Horizontally scrollable for many items
-   - Smaller thumbnails (around 48-56px) that fit well on mobile
-   - Current selection highlighted with a border/ring
-   - Video thumbnails will show a small play icon overlay
+1. **Import the `useIsMobile` hook** from `@/hooks/use-mobile` to detect screen size
 
-3. **Keep the existing dot indicators** as a fallback for very small screens or as secondary navigation
+2. **Add threshold constant** - Define when to switch to dots (e.g., more than 4 items on mobile)
 
-4. **Responsive behavior**:
-   - On mobile: thumbnails slightly smaller, scrollable horizontally
-   - On desktop: centered thumbnails with comfortable spacing
+3. **Conditional rendering logic:**
+   - **Mobile + many items**: Show dot indicators (small circles)
+   - **Desktop or few items**: Show thumbnail strip with gradient edges
+
+4. **Gradient mask implementation:**
+   - Wrap the thumbnail container with a parent that has gradient pseudo-elements
+   - Use CSS mask or gradient overlays on left/right edges
+   - Only show gradients when content overflows (more than ~5 thumbnails)
+
+5. **Dot indicator styling:**
+   - Small circles (`w-2 h-2 rounded-full`)
+   - Current: filled white, Others: semi-transparent
+   - Same pill container background as thumbnails
 
 ### Technical Details
 
-The implementation will:
-- Use `overflow-x-auto` for horizontal scrolling when there are many items
-- Apply `bg-background/60 backdrop-blur-sm` for the overlay effect
-- Use `flex` layout with `gap-2` for thumbnail spacing
-- Add a `Play` icon from lucide-react for video thumbnail indicators
-- Keep thumbnails at `aspect-square` with `object-cover` for consistent sizing
+```text
+Dot Indicator Structure:
+<div className="flex gap-2 px-4 py-2 bg-black/50 backdrop-blur-md rounded-full">
+  {gallery.map((_, index) => (
+    <button
+      className={`w-2 h-2 rounded-full transition-all ${
+        index === current ? "bg-white scale-125" : "bg-white/50"
+      }`}
+    />
+  ))}
+</div>
+
+Gradient Fade (for thumbnails):
+- Parent container: relative, overflow-hidden
+- Before/after pseudo-elements with linear gradients
+- Or use CSS mask-image for cleaner fade effect
+- Using Tailwind: custom inline styles or utility classes for gradients
+```
+
+### Responsive Behavior
+
+| Condition | Display |
+|-----------|---------|
+| Mobile + ≤4 items | Thumbnails (no gradient needed) |
+| Mobile + >4 items | Dot indicators |
+| Desktop + ≤5 items | Thumbnails (no gradient) |
+| Desktop + >5 items | Thumbnails with gradient edges |
+
