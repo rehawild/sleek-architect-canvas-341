@@ -85,9 +85,10 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
                 <ChevronRight className="w-6 h-6" />
               </button>
               
-              {/* Gallery indicators - hide when viewing video */}
-              {currentItem?.type !== "video" && (
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 max-w-[90%]">
+              {/* Gallery indicators - fade out when viewing video, show on hover */}
+              <div className={`absolute bottom-4 left-1/2 -translate-x-1/2 max-w-[90%] transition-opacity duration-300 ${
+                currentItem?.type === "video" ? "opacity-0 hover:opacity-100" : "opacity-100"
+              }`}>
                   {showDots ? (
                     /* Mobile dot indicators */
                     <div className="flex gap-2 px-4 py-2 bg-black/50 backdrop-blur-md rounded-full">
