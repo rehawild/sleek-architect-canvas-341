@@ -34,13 +34,20 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
   // Center the selected thumbnail
   useEffect(() => {
     if (thumbnailContainerRef.current && project && !showDots) {
-      const container = thumbnailContainerRef.current;
-      const itemWidth = THUMBNAIL_SIZE + THUMBNAIL_GAP;
-      const containerWidth = container.clientWidth;
-      const scrollPosition = (currentImageIndex * itemWidth) - (containerWidth / 2) + (THUMBNAIL_SIZE / 2);
-      container.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+      // Small delay to ensure container is rendered and measured
+      const timeoutId = setTimeout(() => {
+        const container = thumbnailContainerRef.current;
+        if (!container) return;
+        
+        const itemWidth = THUMBNAIL_SIZE + THUMBNAIL_GAP;
+        const containerWidth = container.clientWidth;
+        const scrollPosition = (currentImageIndex * itemWidth) - (containerWidth / 2) + (THUMBNAIL_SIZE / 2);
+        container.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+      }, 50);
+      
+      return () => clearTimeout(timeoutId);
     }
-  }, [currentImageIndex, project, showDots]);
+  }, [currentImageIndex, project, showDots, open]);
 
   const nextImage = useCallback(() => {
     setCurrentImageIndex((prev) => 
