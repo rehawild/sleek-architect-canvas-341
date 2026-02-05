@@ -1,4 +1,4 @@
-import bmwFactory1 from "@/assets/bmw-factory-1.jpg";
+import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import cityPearl1 from "@/assets/city-pearl-1.jpg";
 import cityPearl2 from "@/assets/city-pearl-2.jpg";
@@ -23,7 +23,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "bmw-factory",
-    image: bmwFactory1,
+    image: project1,
     title: "BMW Electric Car Factory",
     city: "Debrecen",
     clients: ["BMW Manufacturing Hungary Kft.", "Kagel LTD."],
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "A state-of-the-art electric vehicle manufacturing facility designed to meet the highest standards of sustainable industrial architecture. The project encompasses over 400,000 square meters of production space with integrated renewable energy systems.",
     services: ["Architectural Design", "Project Management", "Construction Supervision"],
-    gallery: [bmwFactory1]
+    gallery: [project1]
   },
   {
     id: "city-pearl",
