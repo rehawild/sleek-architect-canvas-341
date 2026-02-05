@@ -65,7 +65,7 @@ const ProjectDetailDialog = ({
         </DialogHeader>
         
         {/* Gallery Section */}
-        <div className="relative aspect-[16/9] w-full bg-muted flex items-center justify-center">
+        <div className="relative aspect-[2/1] w-full bg-muted flex items-center justify-center">
           {currentItem?.type === "video" ? <video src={currentItem.src} className="max-w-full max-h-full object-contain" controls autoPlay muted /> : currentItem ? <img src={currentItem.src} alt={`${project.title} - Image ${currentImageIndex + 1}`} className="max-w-full max-h-full object-contain" /> : null}
           
           {project.gallery.length > 1 && <>
