@@ -88,5 +88,20 @@ export const projects: Project[] = [
       { type: "video", src: familyHouseVideo1 },
       { type: "video", src: familyHouseVideo2 }
     ]
+  },
+  {
+    id: "szell-kalman-restaurant",
+    image: szellKalmanRestaurant1,
+    title: "Restaurant at Széll Kálmán Tér",
+    city: "Budapest",
+    clients: ["Private Client"],
+    category: "COMMERCIAL",
+    year: "2025-2026",
+    description: "A contemporary restaurant space located at the iconic Széll Kálmán Tér in Budapest. Currently in rough construction phase, featuring exposed steel beam structure and industrial architectural elements that will define the venue's distinctive character.",
+    services: ["Interior Design", "Construction Supervision"],
+    gallery: [
+      { type: "image", src: szellKalmanRestaurant1 },
+      { type: "image", src: szellKalmanRestaurant2 }
+    ]
   }
 ];
