@@ -4,7 +4,6 @@ import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import type { Project } from "@/data/projects";
 const MOBILE_DOT_THRESHOLD = 4;
-const DESKTOP_GRADIENT_THRESHOLD = 5;
 const THUMBNAIL_SIZE = 40; // w-10 = 2.5rem = 40px
 const THUMBNAIL_GAP = 6; // gap-1.5 = 0.375rem = 6px
 
