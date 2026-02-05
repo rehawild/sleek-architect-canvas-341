@@ -77,7 +77,8 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
                 <ChevronRight className="w-6 h-6" />
               </button>
               
-              {/* Thumbnail strip overlay */}
+              {/* Thumbnail strip overlay - hide when viewing video */}
+              {currentItem?.type !== "video" && (
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                 <div className="flex gap-1.5 px-3 py-2 bg-black/50 backdrop-blur-md rounded-full">
                   {project.gallery.map((item, index) => (
