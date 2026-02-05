@@ -45,7 +45,8 @@ export const projects: Project[] = [
     services: ["Architectural Design", "Project Management", "Construction Supervision"],
     gallery: [
       { type: "image", src: bmwFactory1 },
-      { type: "image", src: bmwFactory2 }
+      { type: "image", src: bmwFactory2 },
+      { type: "video", src: bmwFactoryVideo1 }
     ]
   },
   {
