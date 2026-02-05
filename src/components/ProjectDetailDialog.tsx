@@ -151,10 +151,10 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
                       {showGradients && (
                         <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/60 to-transparent z-10 pointer-events-none rounded-r-full" />
                       )}
+                    </div>
+                  )}
                 </div>
               </div>
-                </div>
-              )}
             </>
           )}
           
