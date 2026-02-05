@@ -36,7 +36,7 @@ export const projects: Project[] = [
   },
   {
     id: "city-pearl",
-    image: project2,
+    image: cityPearl1,
     title: "City Pearl Apartments",
     city: "Budapest",
     clients: ["CITY PEARL INTERNATIONAL Kft.", "APD"],
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     year: "2022-2024",
     description: "A premium residential complex in the heart of Budapest featuring modern architecture with elegant glass facades. The development includes multiple high-rise towers offering panoramic city views, landscaped courtyards, and world-class amenities.",
     services: ["Interior Design", "Architectural Design", "Landscape Design"],
-    gallery: [project2, cityPearl1, cityPearl2, cityPearl3]
+    gallery: [cityPearl1, cityPearl2, cityPearl3, cityPearl4, cityPearl5]
   },
   {
     id: "family-house-kaposvar",
