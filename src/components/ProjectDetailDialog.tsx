@@ -87,10 +87,7 @@ const ProjectDetailDialog = ({
         <div className="flex gap-2 px-4 py-2">
                 {project.gallery.map((_, index) => <button key={index} onClick={() => setCurrentImageIndex(index)} className={`w-2 h-2 rounded-full transition-all duration-200 ${index === currentImageIndex ? "bg-foreground scale-125" : "bg-foreground/30 hover:bg-foreground/50"}`} aria-label={`Go to item ${index + 1}`} />)}
               </div>) : (/* Desktop thumbnails with gradient fade */
-        <div ref={thumbnailContainerRef} className="flex gap-1.5 px-3 py-2 bg-muted/50 backdrop-blur-md rounded-lg overflow-x-auto scrollbar-none max-w-[280px]" style={showGradients ? {
-          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
-        } : undefined}>
+        <div ref={thumbnailContainerRef} className="flex gap-1.5 px-3 py-2 bg-muted/50 backdrop-blur-md rounded-lg overflow-x-auto scrollbar-none max-w-[280px]">
                 {project.gallery.map((item, index) => <button key={index} onClick={() => setCurrentImageIndex(index)} className={`relative flex-shrink-0 w-10 h-10 overflow-hidden rounded-sm transition-all duration-200 ${index === currentImageIndex ? "ring-2 ring-primary scale-110" : "opacity-70 hover:opacity-100 hover:scale-105"}`} aria-label={`Go to ${item.type === "video" ? "video" : "image"} ${index + 1}`}>
                     {item.type === "video" ? <>
                         <video src={item.src} className="w-full h-full object-cover" muted />
