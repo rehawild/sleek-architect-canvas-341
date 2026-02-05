@@ -78,16 +78,16 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
               </button>
               
               {/* Thumbnail strip overlay */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-md">
-                <div className="bg-background/60 backdrop-blur-sm rounded-lg p-2 flex gap-2 overflow-x-auto justify-center">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                <div className="flex gap-1.5 px-3 py-2 bg-black/50 backdrop-blur-md rounded-full">
                   {project.gallery.map((item, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
-                      className={`relative flex-shrink-0 w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded transition-all ${
+                      className={`relative flex-shrink-0 w-10 h-10 overflow-hidden rounded-sm transition-all duration-200 ${
                         index === currentImageIndex 
-                          ? "ring-2 ring-foreground" 
-                          : "opacity-60 hover:opacity-100"
+                          ? "ring-2 ring-white scale-110" 
+                          : "opacity-70 hover:opacity-100 hover:scale-105"
                       }`}
                       aria-label={`Go to ${item.type === "video" ? "video" : "image"} ${index + 1}`}
                     >
@@ -98,8 +98,8 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
                             className="w-full h-full object-cover"
                             muted
                           />
-                          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                            <Play className="w-4 h-4 text-white fill-white" />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                            <Play className="w-3 h-3 text-white fill-white" />
                           </div>
                         </>
                       ) : (
