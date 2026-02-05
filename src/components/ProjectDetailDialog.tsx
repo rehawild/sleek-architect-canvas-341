@@ -22,7 +22,6 @@ const ProjectDetailDialog = ({
   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
   const galleryLength = project?.gallery.length ?? 0;
   const showDots = isMobile && galleryLength > MOBILE_DOT_THRESHOLD;
-  const showGradients = !isMobile && galleryLength > DESKTOP_GRADIENT_THRESHOLD;
 
   // Reset index when project changes or dialog opens
   useEffect(() => {
