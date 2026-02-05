@@ -1,43 +1,35 @@
 
+## Fix Thumbnail Strip Centering
 
-## Fix Thumbnail Auto-Centering in Gallery Strip
+### Root Cause
+The thumbnail container doesn't have a constrained width, so it expands to fit all thumbnails. When there's no overflow, `scrollTo()` has no effect because there's nothing to scroll.
 
-### The Problem
-The centering logic exists but isn't working because:
-
-1. **Timing issue**: The `useEffect` runs before the thumbnail container is fully rendered/measured
-2. **Initial render race condition**: When the dialog opens, React renders the component but the DOM might not be ready for scroll calculations
-
-### The Solution
-Add a small delay to ensure the container is rendered and measured before attempting to scroll. Also ensure the effect reruns when the dialog opens.
+### Solution
+Give the thumbnail container a fixed maximum width that's smaller than the total width of all thumbnails, forcing it to scroll. Then the centering logic will work.
 
 ### Changes to `src/components/ProjectDetailDialog.tsx`
 
-**Update the centering useEffect:**
+**Update the thumbnail container div (line 132-138):**
 
 ```tsx
-// Center the selected thumbnail
-useEffect(() => {
-  if (thumbnailContainerRef.current && project && !showDots) {
-    // Small delay to ensure container is rendered and measured
-    const timeoutId = setTimeout(() => {
-      const container = thumbnailContainerRef.current;
-      if (!container) return;
-      
-      const itemWidth = THUMBNAIL_SIZE + THUMBNAIL_GAP;
-      const containerWidth = container.clientWidth;
-      const scrollPosition = (currentImageIndex * itemWidth) - (containerWidth / 2) + (THUMBNAIL_SIZE / 2);
-      container.scrollTo({ left: scrollPosition, behavior: 'smooth' });
-    }, 50);
-    
-    return () => clearTimeout(timeoutId);
-  }
-}, [currentImageIndex, project, showDots, open]);
+<div 
+  ref={thumbnailContainerRef}
+  className="flex gap-1.5 px-3 py-2 bg-black/50 backdrop-blur-md rounded-full overflow-x-auto scrollbar-hide max-w-[280px]"
+  style={showGradients ? {
+    maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+    WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+  } : undefined}
+>
 ```
 
-**Key fixes:**
-- Add `setTimeout` with 50ms delay to ensure DOM is ready
-- Add `open` to dependency array so it runs when dialog opens
-- Add cleanup function to prevent memory leaks
-- Add null check inside timeout callback
+**Key fix:**
+- Add `max-w-[280px]` (approximately 5-6 thumbnails visible) to constrain the container width
+- This forces overflow/scrolling behavior when there are more than ~5 thumbnails
+- The existing `scrollTo` centering logic will now work correctly
+- The gradient mask will provide visual fade on edges indicating more content
 
+### Technical Details
+- Each thumbnail is 40px + 6px gap = 46px
+- Max-width of 280px shows ~5-6 thumbnails at a time
+- When navigating, the selected thumbnail smoothly scrolls to center
+- The gradient mask (already implemented) fades edges for polish
