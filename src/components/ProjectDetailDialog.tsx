@@ -35,11 +35,21 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
         
         {/* Gallery Section */}
         <div className="relative aspect-[16/9] w-full bg-muted">
-          <img
-            src={project.gallery[currentImageIndex]}
-            alt={`${project.title} - Image ${currentImageIndex + 1}`}
-            className="w-full h-full object-cover"
-          />
+          {project.gallery[currentImageIndex].type === "video" ? (
+            <video
+              src={project.gallery[currentImageIndex].src}
+              className="w-full h-full object-cover"
+              controls
+              autoPlay
+              muted
+            />
+          ) : (
+            <img
+              src={project.gallery[currentImageIndex].src}
+              alt={`${project.title} - Image ${currentImageIndex + 1}`}
+              className="w-full h-full object-cover"
+            />
+          )}
           
           {project.gallery.length > 1 && (
             <>
@@ -123,7 +133,7 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
             <div className="pt-6 border-t border-border">
               <h3 className="text-minimal text-muted-foreground mb-4">GALLERY</h3>
               <div className="grid grid-cols-4 gap-4">
-                {project.gallery.map((image, index) => (
+                {project.gallery.map((item, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
@@ -131,11 +141,19 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
                       index === currentImageIndex ? "ring-2 ring-foreground" : "opacity-60 hover:opacity-100"
                     }`}
                   >
-                    <img
-                      src={image}
-                      alt={`${project.title} thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
+                    {item.type === "video" ? (
+                      <video
+                        src={item.src}
+                        className="w-full h-full object-cover"
+                        muted
+                      />
+                    ) : (
+                      <img
+                        src={item.src}
+                        alt={`${project.title} thumbnail ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                   </button>
                 ))}
               </div>

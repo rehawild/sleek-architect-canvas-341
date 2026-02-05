@@ -8,6 +8,13 @@ import cityPearl5 from "@/assets/city-pearl-5.jpg";
 import familyHouse1 from "@/assets/family-house-1.jpg";
 import familyHouse2 from "@/assets/family-house-2.jpg";
 import familyHouse3 from "@/assets/family-house-3.jpg";
+import familyHouseVideo1 from "@/assets/family-house-video-1.mp4";
+import familyHouseVideo2 from "@/assets/family-house-video-2.mp4";
+
+export interface GalleryItem {
+  type: "image" | "video";
+  src: string;
+}
 
 export interface Project {
   id: string;
@@ -19,7 +26,7 @@ export interface Project {
   year: string;
   description: string;
   services: string[];
-  gallery: string[];
+  gallery: GalleryItem[];
 }
 
 export const projects: Project[] = [
@@ -33,7 +40,10 @@ export const projects: Project[] = [
     year: "2023",
     description: "A state-of-the-art electric vehicle manufacturing facility designed to meet the highest standards of sustainable industrial architecture. The project encompasses over 400,000 square meters of production space with integrated renewable energy systems.",
     services: ["Architectural Design", "Project Management", "Construction Supervision"],
-    gallery: [bmwFactory1, bmwFactory2]
+    gallery: [
+      { type: "image", src: bmwFactory1 },
+      { type: "image", src: bmwFactory2 }
+    ]
   },
   {
     id: "city-pearl",
@@ -45,7 +55,13 @@ export const projects: Project[] = [
     year: "2022-2024",
     description: "A premium residential complex in the heart of Budapest featuring modern architecture with elegant glass facades. The development includes multiple high-rise towers offering panoramic city views, landscaped courtyards, and world-class amenities.",
     services: ["Interior Design", "Architectural Design", "Landscape Design"],
-    gallery: [cityPearl1, cityPearl2, cityPearl3, cityPearl4, cityPearl5]
+    gallery: [
+      { type: "image", src: cityPearl1 },
+      { type: "image", src: cityPearl2 },
+      { type: "image", src: cityPearl3 },
+      { type: "image", src: cityPearl4 },
+      { type: "image", src: cityPearl5 }
+    ]
   },
   {
     id: "family-house-kaposvar",
@@ -57,6 +73,12 @@ export const projects: Project[] = [
     year: "2024",
     description: "A contemporary single-story family residence featuring traditional Hungarian roof tiles with a modern architectural approach. The home offers open-plan living spaces with large windows maximizing natural light and views of the surrounding neighborhood.",
     services: ["Architectural Design", "Construction Supervision", "Interior Design"],
-    gallery: [familyHouse1, familyHouse2, familyHouse3]
+    gallery: [
+      { type: "image", src: familyHouse1 },
+      { type: "image", src: familyHouse2 },
+      { type: "image", src: familyHouse3 },
+      { type: "video", src: familyHouseVideo1 },
+      { type: "video", src: familyHouseVideo2 }
+    ]
   }
 ];
