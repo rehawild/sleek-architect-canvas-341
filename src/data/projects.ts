@@ -5,6 +5,8 @@ import cityPearl2 from "@/assets/city-pearl-2.jpg";
 import cityPearl3 from "@/assets/city-pearl-3.jpg";
 import cityPearl4 from "@/assets/city-pearl-4.jpg";
 import cityPearl5 from "@/assets/city-pearl-5.jpg";
+import cityPearlVideo1 from "@/assets/city-pearl-video-1.mp4";
+import cityPearlVideo2 from "@/assets/city-pearl-video-2.mp4";
 import familyHouse1 from "@/assets/family-house-1.jpg";
 import familyHouse2 from "@/assets/family-house-2.jpg";
 import familyHouse3 from "@/assets/family-house-3.jpg";
