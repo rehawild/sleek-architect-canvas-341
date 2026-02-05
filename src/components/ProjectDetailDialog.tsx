@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import type { Project } from "@/data/projects";
@@ -12,7 +12,16 @@ interface ProjectDetailDialogProps {
 const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialogProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Reset index when project changes or dialog opens
+  useEffect(() => {
+    if (open) {
+      setCurrentImageIndex(0);
+    }
+  }, [project?.id, open]);
+
   if (!project) return null;
+
+  const currentItem = project.gallery[currentImageIndex];
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => 
@@ -35,21 +44,21 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
         
         {/* Gallery Section */}
         <div className="relative aspect-[16/9] w-full bg-muted">
-          {project.gallery[currentImageIndex].type === "video" ? (
+          {currentItem?.type === "video" ? (
             <video
-              src={project.gallery[currentImageIndex].src}
+              src={currentItem.src}
               className="w-full h-full object-cover"
               controls
               autoPlay
               muted
             />
-          ) : (
+          ) : currentItem ? (
             <img
-              src={project.gallery[currentImageIndex].src}
+              src={currentItem.src}
               alt={`${project.title} - Image ${currentImageIndex + 1}`}
               className="w-full h-full object-cover"
             />
-          )}
+          ) : null}
           
           {project.gallery.length > 1 && (
             <>
