@@ -1,11 +1,17 @@
 import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import ProjectDetailDialog from "@/components/ProjectDetailDialog";
 import { projects, type Project } from "@/data/projects";
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+
+  // Featured projects for homepage - BMW and City Pearl
+  const featuredProjects = projects.filter(
+    (project) => project.id === "bmw-factory" || project.id === "city-pearl"
+  );
 
   const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
@@ -24,7 +30,7 @@ const Portfolio = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-16 lg:gap-20">
-            {projects.map((project, index) => (
+            {featuredProjects.map((project, index) => (
               <div 
                 key={index} 
                 className="group block cursor-pointer"
@@ -67,6 +73,16 @@ const Portfolio = () => {
                 </div>
               </div>
             ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+            <Link 
+              to="/work" 
+              className="inline-flex items-center gap-2 text-lg hover:text-muted-foreground transition-colors duration-300 group"
+            >
+              View All Work
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
           </div>
         </div>
       </div>
