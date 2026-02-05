@@ -77,18 +77,41 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
                 <ChevronRight className="w-6 h-6" />
               </button>
               
-              {/* Image indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                {project.gallery.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentImageIndex ? "bg-background" : "bg-background/50"
-                    }`}
-                    aria-label={`Go to image ${index + 1}`}
-                  />
-                ))}
+              {/* Thumbnail strip overlay */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-md">
+                <div className="bg-background/60 backdrop-blur-sm rounded-lg p-2 flex gap-2 overflow-x-auto justify-center">
+                  {project.gallery.map((item, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`relative flex-shrink-0 w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded transition-all ${
+                        index === currentImageIndex 
+                          ? "ring-2 ring-foreground" 
+                          : "opacity-60 hover:opacity-100"
+                      }`}
+                      aria-label={`Go to ${item.type === "video" ? "video" : "image"} ${index + 1}`}
+                    >
+                      {item.type === "video" ? (
+                        <>
+                          <video
+                            src={item.src}
+                            className="w-full h-full object-cover"
+                            muted
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                            <Play className="w-4 h-4 text-white fill-white" />
+                          </div>
+                        </>
+                      ) : (
+                        <img
+                          src={item.src}
+                          alt={`${project.title} thumbnail ${index + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
             </>
           )}
