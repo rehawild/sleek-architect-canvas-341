@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -6,6 +6,8 @@ import type { Project } from "@/data/projects";
 
 const MOBILE_DOT_THRESHOLD = 4;
 const DESKTOP_GRADIENT_THRESHOLD = 5;
+const THUMBNAIL_SIZE = 40; // w-10 = 2.5rem = 40px
+const THUMBNAIL_GAP = 6; // gap-1.5 = 0.375rem = 6px
 
 interface ProjectDetailDialogProps {
   project: Project | null;
@@ -16,6 +18,7 @@ interface ProjectDetailDialogProps {
 const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialogProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const isMobile = useIsMobile();
+  const thumbnailContainerRef = useRef<HTMLDivElement>(null);
   
   const showDots = isMobile && project && project.gallery.length > MOBILE_DOT_THRESHOLD;
   const showGradients = !isMobile && project && project.gallery.length > DESKTOP_GRADIENT_THRESHOLD;
@@ -27,21 +30,32 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
     }
   }, [project?.id, open]);
 
+  // Center the selected thumbnail
+  useEffect(() => {
+    if (thumbnailContainerRef.current && project && !showDots) {
+      const container = thumbnailContainerRef.current;
+      const itemWidth = THUMBNAIL_SIZE + THUMBNAIL_GAP;
+      const containerWidth = container.clientWidth;
+      const scrollPosition = (currentImageIndex * itemWidth) - (containerWidth / 2) + (THUMBNAIL_SIZE / 2);
+      container.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    }
+  }, [currentImageIndex, project, showDots]);
+
   if (!project) return null;
 
   const currentItem = project.gallery[currentImageIndex];
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     setCurrentImageIndex((prev) => 
       prev === project.gallery.length - 1 ? 0 : prev + 1
     );
-  };
+  }, [project.gallery.length]);
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     setCurrentImageIndex((prev) => 
       prev === 0 ? project.gallery.length - 1 : prev - 1
     );
-  };
+  }, [project.gallery.length]);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
