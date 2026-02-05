@@ -1,35 +1,63 @@
 
-## Fix Thumbnail Strip Centering
+## Fix Thumbnail Strip Overlapping Video Controls
 
-### Root Cause
-The thumbnail container doesn't have a constrained width, so it expands to fit all thumbnails. When there's no overflow, `scrollTo()` has no effect because there's nothing to scroll.
+### The Problem
+The thumbnail strip is positioned at `bottom-4` relative to the gallery container (which is 16:9 aspect ratio). When viewing portrait videos (9:16), the actual video sits centered within this container, and its native controls appear at the bottom of the video content - which overlaps with the thumbnail strip on smaller screens.
 
 ### Solution
-Give the thumbnail container a fixed maximum width that's smaller than the total width of all thumbnails, forcing it to scroll. Then the centering logic will work.
+Move the thumbnail strip outside the main gallery area, positioning it below the video/image but above the content section. This ensures:
+- No overlap with video controls at any screen size
+- Clear visual separation between media and navigation
+- Consistent experience regardless of media aspect ratio
 
 ### Changes to `src/components/ProjectDetailDialog.tsx`
 
-**Update the thumbnail container div (line 132-138):**
+**Restructure the layout:**
 
-```tsx
-<div 
-  ref={thumbnailContainerRef}
-  className="flex gap-1.5 px-3 py-2 bg-black/50 backdrop-blur-md rounded-full overflow-x-auto scrollbar-hide max-w-[280px]"
-  style={showGradients ? {
-    maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-    WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
-  } : undefined}
->
+1. Move the gallery indicators div from inside the gallery section to after it
+2. Position it as a separate element between the gallery and content sections
+3. Remove the opacity hide/show behavior for videos (no longer needed since it won't overlap)
+
+```text
+Current structure:
++---------------------------+
+| Gallery (16:9 container)  |
+|   +-------------------+   |
+|   | Video/Image       |   |
+|   |                   |   |
+|   +-------------------+   |
+|   [Thumbnail Strip]       | <-- inside gallery, overlaps video controls
++---------------------------+
+| Content Section           |
++---------------------------+
+
+New structure:
++---------------------------+
+| Gallery (16:9 container)  |
+|   +-------------------+   |
+|   | Video/Image       |   |
+|   |                   |   |
+|   +-------------------+   |
++---------------------------+
+| [Thumbnail Strip]         | <-- separate element, no overlap
++---------------------------+
+| Content Section           |
++---------------------------+
 ```
 
-**Key fix:**
-- Add `max-w-[280px]` (approximately 5-6 thumbnails visible) to constrain the container width
-- This forces overflow/scrolling behavior when there are more than ~5 thumbnails
-- The existing `scrollTo` centering logic will now work correctly
-- The gradient mask will provide visual fade on edges indicating more content
-
 ### Technical Details
-- Each thumbnail is 40px + 6px gap = 46px
-- Max-width of 280px shows ~5-6 thumbnails at a time
-- When navigating, the selected thumbnail smoothly scrolls to center
-- The gradient mask (already implemented) fades edges for polish
+
+**Line changes (~111-173):**
+- Move the gallery indicators `<div>` outside the gallery section
+- Place it after the closing `</div>` of the gallery section (line 181)
+- Update styling to work as a standalone element:
+  - Use `flex justify-center py-3 bg-muted/50` for centering
+  - Remove absolute positioning classes
+  - Remove the video-specific opacity toggle (no longer needed)
+  - Keep the thumbnail container styling intact
+
+This approach:
+- Completely eliminates the overlap issue at all screen sizes
+- Works naturally with both portrait and landscape media
+- Makes the thumbnail strip always accessible without hover
+- Maintains the centered auto-scroll behavior
