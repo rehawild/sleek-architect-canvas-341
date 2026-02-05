@@ -131,7 +131,7 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
                     /* Desktop thumbnails with gradient fade */
                     <div 
                       ref={thumbnailContainerRef}
-                      className="flex gap-1.5 px-3 py-2 bg-black/50 backdrop-blur-md rounded-full"
+                      className="flex gap-1.5 px-3 py-2 bg-black/50 backdrop-blur-md rounded-full overflow-x-auto scrollbar-none max-w-[280px]"
                       style={showGradients ? {
                         maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
                         WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
