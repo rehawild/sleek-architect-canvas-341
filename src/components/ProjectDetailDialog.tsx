@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import type { Project } from "@/data/projects";
+
+const MOBILE_DOT_THRESHOLD = 4;
+const DESKTOP_GRADIENT_THRESHOLD = 5;
 
 interface ProjectDetailDialogProps {
   project: Project | null;
@@ -11,6 +15,10 @@ interface ProjectDetailDialogProps {
 
 const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialogProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const isMobile = useIsMobile();
+  
+  const showDots = isMobile && project && project.gallery.length > MOBILE_DOT_THRESHOLD;
+  const showGradients = !isMobile && project && project.gallery.length > DESKTOP_GRADIENT_THRESHOLD;
 
   // Reset index when project changes or dialog opens
   useEffect(() => {
@@ -77,43 +85,74 @@ const ProjectDetailDialog = ({ project, open, onOpenChange }: ProjectDetailDialo
                 <ChevronRight className="w-6 h-6" />
               </button>
               
-              {/* Thumbnail strip overlay - hide when viewing video */}
+              {/* Gallery indicators - hide when viewing video */}
               {currentItem?.type !== "video" && (
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                <div className="flex gap-1.5 px-3 py-2 bg-black/50 backdrop-blur-md rounded-full">
-                  {project.gallery.map((item, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImageIndex(index)}
-                      className={`relative flex-shrink-0 w-10 h-10 overflow-hidden rounded-sm transition-all duration-200 ${
-                        index === currentImageIndex 
-                          ? "ring-2 ring-white scale-110" 
-                          : "opacity-70 hover:opacity-100 hover:scale-105"
-                      }`}
-                      aria-label={`Go to ${item.type === "video" ? "video" : "image"} ${index + 1}`}
-                    >
-                      {item.type === "video" ? (
-                        <>
-                          <video
-                            src={item.src}
-                            className="w-full h-full object-cover"
-                            muted
-                          />
-                          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                            <Play className="w-3 h-3 text-white fill-white" />
-                          </div>
-                        </>
-                      ) : (
-                        <img
-                          src={item.src}
-                          alt={`${project.title} thumbnail ${index + 1}`}
-                          className="w-full h-full object-cover"
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 max-w-[90%]">
+                  {showDots ? (
+                    /* Mobile dot indicators */
+                    <div className="flex gap-2 px-4 py-2 bg-black/50 backdrop-blur-md rounded-full">
+                      {project.gallery.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                            index === currentImageIndex 
+                              ? "bg-white scale-125" 
+                              : "bg-white/50 hover:bg-white/75"
+                          }`}
+                          aria-label={`Go to item ${index + 1}`}
                         />
+                      ))}
+                    </div>
+                  ) : (
+                    /* Desktop thumbnails with gradient fade */
+                    <div className="relative">
+                      {/* Left gradient fade */}
+                      {showGradients && (
+                        <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/60 to-transparent z-10 pointer-events-none rounded-l-full" />
                       )}
-                    </button>
-                  ))}
+                      
+                      <div className="flex gap-1.5 px-3 py-2 bg-black/50 backdrop-blur-md rounded-full overflow-x-auto scrollbar-hide">
+                        {project.gallery.map((item, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setCurrentImageIndex(index)}
+                            className={`relative flex-shrink-0 w-10 h-10 overflow-hidden rounded-sm transition-all duration-200 ${
+                              index === currentImageIndex 
+                                ? "ring-2 ring-white scale-110" 
+                                : "opacity-70 hover:opacity-100 hover:scale-105"
+                            }`}
+                            aria-label={`Go to ${item.type === "video" ? "video" : "image"} ${index + 1}`}
+                          >
+                            {item.type === "video" ? (
+                              <>
+                                <video
+                                  src={item.src}
+                                  className="w-full h-full object-cover"
+                                  muted
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                                  <Play className="w-3 h-3 text-white fill-white" />
+                                </div>
+                              </>
+                            ) : (
+                              <img
+                                src={item.src}
+                                alt={`${project.title} thumbnail ${index + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                      
+                      {/* Right gradient fade */}
+                      {showGradients && (
+                        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/60 to-transparent z-10 pointer-events-none rounded-r-full" />
+                      )}
+                    </div>
+                  )}
                 </div>
-              </div>
               )}
             </>
           )}
