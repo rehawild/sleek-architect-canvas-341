@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import type { Project } from "@/data/projects";
+
+const MOBILE_DOT_THRESHOLD = 4;
+const DESKTOP_GRADIENT_THRESHOLD = 5;
 
 interface ProjectDetailDialogProps {
   project: Project | null;
