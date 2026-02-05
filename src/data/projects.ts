@@ -41,5 +41,17 @@ export const projects: Project[] = [
     description: "A premium residential complex in the heart of Budapest featuring modern architecture with elegant glass facades. The development includes multiple high-rise towers offering panoramic city views, landscaped courtyards, and world-class amenities.",
     services: ["Interior Design", "Architectural Design", "Landscape Design"],
     gallery: [project2, cityPearl1, cityPearl2, cityPearl3]
+  },
+  {
+    id: "family-house-kaposvar",
+    image: familyHouse1,
+    title: "Family House",
+    city: "Kaposvár",
+    clients: ["Private Client"],
+    category: "RESIDENTIAL",
+    year: "2024",
+    description: "A contemporary single-story family residence featuring traditional Hungarian roof tiles with a modern architectural approach. The home offers open-plan living spaces with large windows maximizing natural light and views of the surrounding neighborhood.",
+    services: ["Architectural Design", "Construction Supervision", "Interior Design"],
+    gallery: [familyHouse1, familyHouse2, familyHouse3]
   }
 ];
