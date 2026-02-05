@@ -23,7 +23,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "bmw-factory",
-    image: project1,
+    image: bmwFactory1,
     title: "BMW Electric Car Factory",
     city: "Debrecen",
     clients: ["BMW Manufacturing Hungary Kft.", "Kagel LTD."],
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "A state-of-the-art electric vehicle manufacturing facility designed to meet the highest standards of sustainable industrial architecture. The project encompasses over 400,000 square meters of production space with integrated renewable energy systems.",
     services: ["Architectural Design", "Project Management", "Construction Supervision"],
-    gallery: [project1]
+    gallery: [bmwFactory1]
   },
   {
     id: "city-pearl",
