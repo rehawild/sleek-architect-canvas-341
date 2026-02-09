@@ -1,3 +1,4 @@
+// Services homepage teaser
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import architecturalImg from "@/assets/service-architectural.jpg";
