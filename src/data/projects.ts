@@ -77,7 +77,7 @@ export const projects: Project[] = [
     id: "family-house-kaposvar",
     image: familyHouse1,
     title: "Family House",
-    city: "Kaposvár",
+    city: "Sopron",
     clients: ["Private Client"],
     category: "RESIDENTIAL",
     year: "2024",
