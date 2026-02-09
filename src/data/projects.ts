@@ -43,13 +43,14 @@ export const projects: Project[] = [
     clients: ["BMW Manufacturing Hungary Kft.", "Kagel LTD."],
     category: "INDUSTRIAL",
     year: "2023",
-    description: "A state-of-the-art electric vehicle manufacturing facility designed to meet the highest standards of sustainable industrial architecture. The project encompasses over 400,000 square meters of production space with integrated renewable energy systems.",
+    description:
+      "A state-of-the-art electric vehicle manufacturing facility designed to meet the highest standards of sustainable industrial architecture. The project encompasses over 400,000 square meters of production space with integrated renewable energy systems.",
     services: ["Architectural Design", "Project Management", "Construction Supervision"],
     gallery: [
       { type: "image", src: bmwFactory1 },
       { type: "image", src: bmwFactory2 },
-      { type: "video", src: bmwFactoryVideo1 }
-    ]
+      { type: "video", src: bmwFactoryVideo1 },
+    ],
   },
   {
     id: "city-pearl",
@@ -59,7 +60,8 @@ export const projects: Project[] = [
     clients: ["CITY PEARL INTERNATIONAL Kft.", "APD"],
     category: "RESIDENTIAL",
     year: "2022-2024",
-    description: "A premium residential complex in the heart of Budapest featuring modern architecture with elegant glass facades. The development includes multiple high-rise towers offering panoramic city views, landscaped courtyards, and world-class amenities.",
+    description:
+      "A premium residential complex in the heart of Budapest featuring modern architecture with elegant glass facades. The development includes multiple high-rise towers offering panoramic city views, landscaped courtyards, and world-class amenities.",
     services: ["Interior Design", "Architectural Design", "Landscape Design"],
     gallery: [
       { type: "image", src: cityPearl1 },
@@ -68,8 +70,8 @@ export const projects: Project[] = [
       { type: "image", src: cityPearl4 },
       { type: "image", src: cityPearl5 },
       { type: "video", src: cityPearlVideo1 },
-      { type: "video", src: cityPearlVideo2 }
-    ]
+      { type: "video", src: cityPearlVideo2 },
+    ],
   },
   {
     id: "family-house-kaposvar",
@@ -79,15 +81,16 @@ export const projects: Project[] = [
     clients: ["Private Client"],
     category: "RESIDENTIAL",
     year: "2024",
-    description: "A contemporary single-story family residence featuring traditional Hungarian roof tiles with a modern architectural approach. The home offers open-plan living spaces with large windows maximizing natural light and views of the surrounding neighborhood.",
+    description:
+      "A contemporary single-story family residence featuring traditional Hungarian roof tiles with a modern architectural approach. The home offers open-plan living spaces with large windows maximizing natural light and views of the surrounding neighborhood.",
     services: ["Architectural Design", "Construction Supervision", "Interior Design"],
     gallery: [
+      { type: "video", src: familyHouseVideo2 },
       { type: "image", src: familyHouse1 },
       { type: "image", src: familyHouse2 },
       { type: "image", src: familyHouse3 },
       { type: "video", src: familyHouseVideo1 },
-      { type: "video", src: familyHouseVideo2 }
-    ]
+    ],
   },
   {
     id: "szell-kalman-restaurant",
@@ -97,11 +100,12 @@ export const projects: Project[] = [
     clients: ["Private Client"],
     category: "COMMERCIAL",
     year: "2025-2026",
-    description: "A contemporary restaurant space located at the iconic Széll Kálmán Tér in Budapest. Currently in rough construction phase, featuring exposed steel beam structure and industrial architectural elements that will define the venue's distinctive character.",
+    description:
+      "A contemporary restaurant space located at the iconic Széll Kálmán Tér in Budapest. Currently in rough construction phase, featuring exposed steel beam structure and industrial architectural elements that will define the venue's distinctive character.",
     services: ["Interior Design", "Construction Supervision"],
     gallery: [
       { type: "image", src: szellKalmanRestaurant1 },
-      { type: "image", src: szellKalmanRestaurant2 }
-    ]
-  }
+      { type: "image", src: szellKalmanRestaurant2 },
+    ],
+  },
 ];
