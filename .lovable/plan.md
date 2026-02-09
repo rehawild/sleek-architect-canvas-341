@@ -1,63 +1,36 @@
 
-## Fix Thumbnail Strip Overlapping Video Controls
 
-### The Problem
-The thumbnail strip is positioned at `bottom-4` relative to the gallery container (which is 16:9 aspect ratio). When viewing portrait videos (9:16), the actual video sits centered within this container, and its native controls appear at the bottom of the video content - which overlaps with the thumbnail strip on smaller screens.
+# Fix Social Media Preview (WhatsApp Thumbnail)
 
-### Solution
-Move the thumbnail strip outside the main gallery area, positioning it below the video/image but above the content section. This ensures:
-- No overlap with video controls at any screen size
-- Clear visual separation between media and navigation
-- Consistent experience regardless of media aspect ratio
+## The Problem
+When you share `tapanpartners.com` on WhatsApp (or Facebook, LinkedIn, etc.), it shows "ARCH STUDIO - Minimal Architecture & Design" with the old template image. This is because `index.html` still has the old template's meta tags.
 
-### Changes to `src/components/ProjectDetailDialog.tsx`
+## What Will Change
 
-**Restructure the layout:**
+Update `index.html` with:
+- **Title**: "Tapan & Partners" (instead of "ARCH STUDIO")
+- **Description**: A proper description of the firm
+- **Author**: "Tapan & Partners"
+- **OG Title & Description**: Updated for WhatsApp/social previews
+- **OG Image**: A screenshot of the actual site (we can upload one or take a fresh one)
+- **Twitter tags**: Updated to match
 
-1. Move the gallery indicators div from inside the gallery section to after it
-2. Position it as a separate element between the gallery and content sections
-3. Remove the opacity hide/show behavior for videos (no longer needed since it won't overlap)
+## Important Note
+After this change is deployed, WhatsApp and other platforms **cache** old previews. It may take some time for the new preview to show up. You can also try pasting the link fresh in a new chat.
 
-```text
-Current structure:
-+---------------------------+
-| Gallery (16:9 container)  |
-|   +-------------------+   |
-|   | Video/Image       |   |
-|   |                   |   |
-|   +-------------------+   |
-|   [Thumbnail Strip]       | <-- inside gallery, overlaps video controls
-+---------------------------+
-| Content Section           |
-+---------------------------+
+## Technical Details
 
-New structure:
-+---------------------------+
-| Gallery (16:9 container)  |
-|   +-------------------+   |
-|   | Video/Image       |   |
-|   |                   |   |
-|   +-------------------+   |
-+---------------------------+
-| [Thumbnail Strip]         | <-- separate element, no overlap
-+---------------------------+
-| Content Section           |
-+---------------------------+
-```
+**File to modify:** `index.html`
 
-### Technical Details
+All 7 meta tags in the `<head>` section will be updated:
+1. `<title>` tag
+2. `<meta name="description">`
+3. `<meta name="author">`
+4. `<meta property="og:title">`
+5. `<meta property="og:description">`
+6. `<meta property="og:image">` (new screenshot needed)
+7. `<meta name="twitter:site">` (remove @lovable_dev reference)
+8. `<meta name="twitter:image">` (new screenshot)
 
-**Line changes (~111-173):**
-- Move the gallery indicators `<div>` outside the gallery section
-- Place it after the closing `</div>` of the gallery section (line 181)
-- Update styling to work as a standalone element:
-  - Use `flex justify-center py-3 bg-muted/50` for centering
-  - Remove absolute positioning classes
-  - Remove the video-specific opacity toggle (no longer needed)
-  - Keep the thumbnail container styling intact
+I will ask you what description you'd like for the firm before making changes.
 
-This approach:
-- Completely eliminates the overlap issue at all screen sizes
-- Works naturally with both portrait and landscape media
-- Makes the thumbnail strip always accessible without hover
-- Maintains the centered auto-scroll behavior
