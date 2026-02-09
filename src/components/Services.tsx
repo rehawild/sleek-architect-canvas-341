@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import architecturalImg from "@/assets/service-architectural.jpg";
-import interiorImg from "@/assets/service-interior.jpg";
+import constructionImg from "@/assets/service-construction.jpg";
 import furnitureImg from "@/assets/service-furniture.jpg";
 
 const Services = () => {
