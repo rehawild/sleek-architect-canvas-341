@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import architecturalImg from "@/assets/service-architectural.jpg";
-import interiorImg from "@/assets/service-interior.jpg";
+import constructionImg from "@/assets/service-construction.jpg";
 import furnitureImg from "@/assets/service-furniture.jpg";
 
 const Services = () => {
@@ -15,10 +15,10 @@ const Services = () => {
     },
     {
       number: "02", 
-      title: "Interior Design",
-      description: "Curated environments that balance function with refined aesthetics",
-      slug: "interior-design",
-      image: interiorImg
+      title: "Construction · Project Management",
+      description: "Seamless execution from concept to completion, on time and on budget",
+      slug: "construction",
+      image: constructionImg
     },
     {
       number: "03",
