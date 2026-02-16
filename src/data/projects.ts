@@ -76,6 +76,12 @@ import skanska13 from "@/assets/skanska-13.jpg";
 import skanska14 from "@/assets/skanska-14.jpg";
 import takenaka1 from "@/assets/takenaka-1.jpg";
 import takenaka2 from "@/assets/takenaka-2.jpg";
+import tinyHouse1 from "@/assets/tiny-house-1.jpg";
+import tinyHouse2 from "@/assets/tiny-house-2.jpg";
+import tinyHouse3 from "@/assets/tiny-house-3.jpg";
+import tinyHouse4 from "@/assets/tiny-house-4.jpg";
+import tinyHouse5 from "@/assets/tiny-house-5.jpg";
+import tinyHouse6 from "@/assets/tiny-house-6.png";
 
 export interface GalleryItem {
   type: "image" | "video";
@@ -285,6 +291,26 @@ export const projects: Project[] = [
     gallery: [
       { type: "image", src: takenaka1 },
       { type: "image", src: takenaka2 },
+    ],
+  },
+  {
+    id: "tiny-house",
+    image: tinyHouse1,
+    title: "Tiny House",
+    city: "Custom Location",
+    clients: ["Private Clients"],
+    category: "ARCHITECTURE",
+    year: "On Demand",
+    description:
+      "A collection of bespoke tiny house designs crafted to each client's individual desires. These compact, modern dwellings feature minimalist Scandinavian-inspired architecture with dark timber cladding, expansive glazing, and natural wood accents — designed to blend seamlessly into any natural setting.",
+    services: ["Architectural Design", "Custom Design"],
+    gallery: [
+      { type: "image", src: tinyHouse1 },
+      { type: "image", src: tinyHouse2 },
+      { type: "image", src: tinyHouse3 },
+      { type: "image", src: tinyHouse4 },
+      { type: "image", src: tinyHouse5 },
+      { type: "image", src: tinyHouse6 },
     ],
   },
 ];
