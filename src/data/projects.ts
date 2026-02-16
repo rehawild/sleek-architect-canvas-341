@@ -74,6 +74,8 @@ import skanska11 from "@/assets/skanska-11.jpg";
 import skanska12 from "@/assets/skanska-12.jpg";
 import skanska13 from "@/assets/skanska-13.jpg";
 import skanska14 from "@/assets/skanska-14.jpg";
+import takenaka1 from "@/assets/takenaka-1.jpg";
+import takenaka2 from "@/assets/takenaka-2.jpg";
 
 export interface GalleryItem {
   type: "image" | "video";
@@ -267,6 +269,22 @@ export const projects: Project[] = [
       { type: "image", src: skanska12 },
       { type: "image", src: skanska13 },
       { type: "image", src: skanska14 },
+    ],
+  },
+  {
+    id: "takenaka-warehouse",
+    image: takenaka2,
+    title: "Takenaka Warehouse",
+    city: "Budapest",
+    clients: ["Takenaka"],
+    category: "ARCHITECTURE",
+    year: "2022",
+    description:
+      "A large-scale industrial warehouse complex designed for Takenaka, featuring expansive storage and logistics facilities with modern structural engineering. The project includes multiple warehouse buildings, office spaces, and integrated parking infrastructure.",
+    services: ["Architectural Design", "Construction Supervision"],
+    gallery: [
+      { type: "image", src: takenaka1 },
+      { type: "image", src: takenaka2 },
     ],
   },
 ];
