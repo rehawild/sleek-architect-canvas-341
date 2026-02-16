@@ -12,6 +12,11 @@ import cityPearl12 from "@/assets/city-pearl-12.jpg";
 import cityPearl13 from "@/assets/city-pearl-13.jpg";
 import cityPearl14 from "@/assets/city-pearl-14.jpg";
 import cityPearl15 from "@/assets/city-pearl-15.jpg";
+import cityPearl17 from "@/assets/city-pearl-17.jpg";
+import cityPearl18 from "@/assets/city-pearl-18.jpg";
+import cityPearl20 from "@/assets/city-pearl-20.jpg";
+import cityPearl21 from "@/assets/city-pearl-21.jpg";
+import cityPearl22 from "@/assets/city-pearl-22.jpg";
 import cityPearlVideo1 from "@/assets/city-pearl-video-1.mp4";
 import cityPearlVideo2 from "@/assets/city-pearl-video-2.mp4";
 import familyHouse1 from "@/assets/family-house-1.jpg";
@@ -25,6 +30,7 @@ import szellKalmanRestaurant2 from "@/assets/szell-kalman-restaurant-2.jpg";
 export interface GalleryItem {
   type: "image" | "video";
   src: string;
+  colorOn?: boolean;
 }
 
 export interface Project {
@@ -60,7 +66,7 @@ export const projects: Project[] = [
   },
   {
     id: "city-pearl",
-    image: cityPearl5,
+    image: cityPearl17,
     title: "City Pearl Apartments",
     city: "Budapest",
     clients: ["CITY PEARL INTERNATIONAL Kft.", "APD"],
@@ -71,6 +77,7 @@ export const projects: Project[] = [
     services: ["Interior Design", "Architectural Design", "Landscape Design"],
     grayscale: true,
     gallery: [
+      { type: "image", src: cityPearl17, colorOn: true },
       { type: "image", src: cityPearl6 },
       { type: "image", src: cityPearl7 },
       { type: "image", src: cityPearl8 },
@@ -80,6 +87,10 @@ export const projects: Project[] = [
       { type: "image", src: cityPearl13 },
       { type: "image", src: cityPearl14 },
       { type: "image", src: cityPearl15 },
+      { type: "image", src: cityPearl18 },
+      { type: "image", src: cityPearl22 },
+      { type: "image", src: cityPearl20 },
+      { type: "image", src: cityPearl21 },
       { type: "video", src: cityPearlVideo1 },
       { type: "video", src: cityPearlVideo2 },
     ],
