@@ -71,7 +71,6 @@ export const projects: Project[] = [
     services: ["Interior Design", "Architectural Design", "Landscape Design"],
     grayscale: true,
     gallery: [
-      { type: "image", src: cityPearl5 },
       { type: "image", src: cityPearl6 },
       { type: "image", src: cityPearl7 },
       { type: "image", src: cityPearl8 },
