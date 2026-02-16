@@ -45,6 +45,7 @@ export interface Project {
   services: string[];
   gallery: GalleryItem[];
   grayscale?: boolean;
+  coverColorOn?: boolean;
 }
 
 export const projects: Project[] = [
@@ -76,11 +77,12 @@ export const projects: Project[] = [
       "A premium residential complex in the heart of Budapest featuring modern architecture with elegant glass facades. The development includes multiple high-rise towers offering panoramic city views, landscaped courtyards, and world-class amenities.",
     services: ["Interior Design", "Architectural Design", "Landscape Design"],
     grayscale: true,
+    coverColorOn: true,
     gallery: [
       { type: "image", src: cityPearl17, colorOn: true },
       { type: "image", src: cityPearl6 },
       { type: "image", src: cityPearl7 },
-      { type: "image", src: cityPearl8, colorOn: true },
+      { type: "image", src: cityPearl8 },
       { type: "image", src: cityPearl9 },
       { type: "image", src: cityPearl10 },
       { type: "image", src: cityPearl12 },
