@@ -1,14 +1,13 @@
 import bmwFactory1 from "@/assets/bmw-factory-1.jpg";
 import bmwFactory2 from "@/assets/bmw-factory-2.jpg";
 import bmwFactoryVideo1 from "@/assets/bmw-factory-video-1.mp4";
+import cityPearl5 from "@/assets/city-pearl-5.jpg";
 import cityPearl6 from "@/assets/city-pearl-6.jpg";
-import cityPearl17 from "@/assets/city-pearl-17.jpg";
-import cityPearl18 from "@/assets/city-pearl-18.jpg";
 import cityPearl7 from "@/assets/city-pearl-7.jpg";
 import cityPearl8 from "@/assets/city-pearl-8.jpg";
 import cityPearl9 from "@/assets/city-pearl-9.jpg";
 import cityPearl10 from "@/assets/city-pearl-10.jpg";
-
+import cityPearl11 from "@/assets/city-pearl-11.jpg";
 import cityPearl12 from "@/assets/city-pearl-12.jpg";
 import cityPearl13 from "@/assets/city-pearl-13.jpg";
 import cityPearl14 from "@/assets/city-pearl-14.jpg";
@@ -26,7 +25,6 @@ import szellKalmanRestaurant2 from "@/assets/szell-kalman-restaurant-2.jpg";
 export interface GalleryItem {
   type: "image" | "video";
   src: string;
-  colorOn?: boolean;
 }
 
 export interface Project {
@@ -62,7 +60,7 @@ export const projects: Project[] = [
   },
   {
     id: "city-pearl",
-    image: cityPearl17,
+    image: cityPearl5,
     title: "City Pearl Apartments",
     city: "Budapest",
     clients: ["CITY PEARL INTERNATIONAL Kft.", "APD"],
@@ -73,17 +71,17 @@ export const projects: Project[] = [
     services: ["Interior Design", "Architectural Design", "Landscape Design"],
     grayscale: true,
     gallery: [
-      { type: "image", src: cityPearl17, colorOn: true },
+      { type: "image", src: cityPearl5 },
       { type: "image", src: cityPearl6 },
       { type: "image", src: cityPearl7 },
-      { type: "image", src: cityPearl8, colorOn: true },
+      { type: "image", src: cityPearl8 },
       { type: "image", src: cityPearl9 },
       { type: "image", src: cityPearl10 },
+      { type: "image", src: cityPearl11 },
       { type: "image", src: cityPearl12 },
       { type: "image", src: cityPearl13 },
       { type: "image", src: cityPearl14 },
       { type: "image", src: cityPearl15 },
-      { type: "image", src: cityPearl18 },
       { type: "video", src: cityPearlVideo1 },
       { type: "video", src: cityPearlVideo2 },
     ],

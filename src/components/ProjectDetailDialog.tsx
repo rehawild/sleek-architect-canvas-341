@@ -64,7 +64,7 @@ const ProjectDetailDialog = ({
         
         {/* Gallery Section */}
         <div className="relative aspect-[2/1] w-full bg-muted flex items-center justify-center">
-          {currentItem?.type === "video" ? <video src={currentItem.src} className={`max-w-full max-h-full object-contain ${project.grayscale && !currentItem.colorOn ? "grayscale" : ""}`} controls autoPlay muted /> : currentItem ? <img src={currentItem.src} alt={`${project.title} - Image ${currentImageIndex + 1}`} className={`max-w-full max-h-full object-contain ${project.grayscale && !currentItem.colorOn ? "grayscale" : ""}`} /> : null}
+          {currentItem?.type === "video" ? <video src={currentItem.src} className={`max-w-full max-h-full object-contain ${project.grayscale ? "grayscale" : ""}`} controls autoPlay muted /> : currentItem ? <img src={currentItem.src} alt={`${project.title} - Image ${currentImageIndex + 1}`} className={`max-w-full max-h-full object-contain ${project.grayscale ? "grayscale" : ""}`} /> : null}
           
           {project.gallery.length > 1 && <>
               <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm p-2 rounded-full hover:bg-background transition-colors" aria-label="Previous image">
@@ -90,11 +90,11 @@ const ProjectDetailDialog = ({
         <div ref={thumbnailContainerRef} className="flex gap-1.5 px-3 py-2 bg-muted/50 backdrop-blur-md rounded-lg overflow-x-auto scrollbar-none max-w-[280px]">
                 {project.gallery.map((item, index) => <button key={index} onClick={() => setCurrentImageIndex(index)} className={`relative flex-shrink-0 w-10 h-10 overflow-hidden rounded-sm transition-all duration-200 ${index === currentImageIndex ? "ring-2 ring-primary scale-110" : "opacity-70 hover:opacity-100 hover:scale-105"}`} aria-label={`Go to ${item.type === "video" ? "video" : "image"} ${index + 1}`}>
                     {item.type === "video" ? <>
-                        <video src={item.src} className={`w-full h-full object-cover ${project.grayscale && !item.colorOn ? "grayscale" : ""}`} muted />
+                        <video src={item.src} className={`w-full h-full object-cover ${project.grayscale ? "grayscale" : ""}`} muted />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
                           <Play className="w-3 h-3 text-white fill-white" />
                         </div>
-                      </> : <img src={item.src} alt={`${project.title} thumbnail ${index + 1}`} className={`w-full h-full object-cover ${project.grayscale && !item.colorOn ? "grayscale" : ""}`} />}
+                      </> : <img src={item.src} alt={`${project.title} thumbnail ${index + 1}`} className={`w-full h-full object-cover ${project.grayscale ? "grayscale" : ""}`} />}
                   </button>)}
               </div>)}
           </div>}
