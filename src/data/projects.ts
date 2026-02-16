@@ -38,6 +38,9 @@ import familyHouseVideo3 from "@/assets/family-house-video-3.mp4";
 import familyHouseVideo4 from "@/assets/family-house-video-4.mp4";
 import szellKalmanRestaurant1 from "@/assets/szell-kalman-restaurant-1.jpg";
 import szellKalmanRestaurant2 from "@/assets/szell-kalman-restaurant-2.jpg";
+import szellKalmanRestaurant3 from "@/assets/szell-kalman-restaurant-3.jpg";
+import szellKalmanRestaurant4 from "@/assets/szell-kalman-restaurant-4.jpg";
+import szellKalmanRestaurantVideo1 from "@/assets/szell-kalman-restaurant-video-1.mp4";
 
 export interface GalleryItem {
   type: "image" | "video";
@@ -153,6 +156,9 @@ export const projects: Project[] = [
     gallery: [
       { type: "image", src: szellKalmanRestaurant1 },
       { type: "image", src: szellKalmanRestaurant2 },
+      { type: "image", src: szellKalmanRestaurant3 },
+      { type: "image", src: szellKalmanRestaurant4 },
+      { type: "video", src: szellKalmanRestaurantVideo1 },
     ],
   },
 ];
