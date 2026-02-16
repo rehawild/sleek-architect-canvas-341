@@ -76,7 +76,6 @@ export const projects: Project[] = [
       { type: "image", src: cityPearl8 },
       { type: "image", src: cityPearl9 },
       { type: "image", src: cityPearl10 },
-      { type: "image", src: cityPearl11 },
       { type: "image", src: cityPearl12 },
       { type: "image", src: cityPearl13 },
       { type: "image", src: cityPearl14 },
