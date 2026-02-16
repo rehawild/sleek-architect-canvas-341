@@ -41,6 +41,8 @@ import szellKalmanRestaurant2 from "@/assets/szell-kalman-restaurant-2.jpg";
 import szellKalmanRestaurant3 from "@/assets/szell-kalman-restaurant-3.jpg";
 import szellKalmanRestaurant4 from "@/assets/szell-kalman-restaurant-4.jpg";
 import szellKalmanRestaurantVideo1 from "@/assets/szell-kalman-restaurant-video-1.mp4";
+import szellKalmanRestaurant5 from "@/assets/szell-kalman-restaurant-5.jpg";
+import szellKalmanRestaurant6 from "@/assets/szell-kalman-restaurant-6.jpg";
 import cinemaMammut1 from "@/assets/cinema-mammut-1.jpg";
 import cinemaMammut2 from "@/assets/cinema-mammut-2.jpg";
 import cinemaMammut3 from "@/assets/cinema-mammut-3.jpg";
@@ -190,6 +192,8 @@ export const projects: Project[] = [
       { type: "image", src: szellKalmanRestaurant3 },
       { type: "image", src: szellKalmanRestaurant4 },
       { type: "video", src: szellKalmanRestaurantVideo1 },
+      { type: "image", src: szellKalmanRestaurant5 },
+      { type: "image", src: szellKalmanRestaurant6 },
     ],
   },
   {
