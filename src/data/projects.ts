@@ -50,6 +50,14 @@ import cinemaMammut6 from "@/assets/cinema-mammut-6.jpg";
 import cinemaMammut7 from "@/assets/cinema-mammut-7.jpg";
 import cinemaMammut8 from "@/assets/cinema-mammut-8.jpg";
 import cinemaMammut9 from "@/assets/cinema-mammut-9.jpg";
+import klotildPalace1 from "@/assets/klotild-palace-1.jpg";
+import klotildPalace2 from "@/assets/klotild-palace-2.jpg";
+import klotildPalace3 from "@/assets/klotild-palace-3.jpg";
+import klotildPalace4 from "@/assets/klotild-palace-4.jpg";
+import klotildPalace5 from "@/assets/klotild-palace-5.jpg";
+import klotildPalace6 from "@/assets/klotild-palace-6.jpg";
+import klotildPalace7 from "@/assets/klotild-palace-7.jpg";
+import klotildPalace8 from "@/assets/klotild-palace-8.jpg";
 
 export interface GalleryItem {
   type: "image" | "video";
@@ -191,6 +199,28 @@ export const projects: Project[] = [
       { type: "image", src: cinemaMammut4 },
       { type: "image", src: cinemaMammut3 },
       { type: "image", src: cinemaMammut5 },
+    ],
+  },
+  {
+    id: "klotild-palace",
+    image: klotildPalace1,
+    title: "Klotild Palace Hotel",
+    city: "Budapest",
+    clients: ["Confidential"],
+    category: "ARCHITECTURE",
+    year: "2023",
+    description:
+      "A prestigious architectural restoration and redesign of the historic Klotild Palace in Budapest, transforming the iconic neo-baroque landmark into a luxury St. Regis hotel. The project involved meticulous facade restoration, detailed floor planning, and bespoke architectural elements including cast bronze profiles and laminated glass features.",
+    services: ["Architectural Design", "Heritage Restoration", "Detail Design"],
+    gallery: [
+      { type: "image", src: klotildPalace1 },
+      { type: "image", src: klotildPalace2 },
+      { type: "image", src: klotildPalace3 },
+      { type: "image", src: klotildPalace4 },
+      { type: "image", src: klotildPalace5 },
+      { type: "image", src: klotildPalace6 },
+      { type: "image", src: klotildPalace7 },
+      { type: "image", src: klotildPalace8 },
     ],
   },
 ];

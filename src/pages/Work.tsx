@@ -10,7 +10,7 @@ const Work = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const categories = ["ALL", "INDUSTRIAL", "COMMERCIAL", "RESIDENTIAL", "INTERIOR DESIGN"];
+  const categories = ["ALL", "INDUSTRIAL", "COMMERCIAL", "RESIDENTIAL", "INTERIOR DESIGN", "ARCHITECTURE"];
   const disabledCategories = ["CULTURAL"]; // Temporarily disabled until we have projects
 
   const filteredProjects = activeCategory === "ALL" 
