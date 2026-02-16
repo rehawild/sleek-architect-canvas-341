@@ -1,10 +1,6 @@
 import bmwFactory1 from "@/assets/bmw-factory-1.jpg";
 import bmwFactory2 from "@/assets/bmw-factory-2.jpg";
 import bmwFactoryVideo1 from "@/assets/bmw-factory-video-1.mp4";
-import cityPearl1 from "@/assets/city-pearl-1.jpg";
-import cityPearl2 from "@/assets/city-pearl-2.jpg";
-import cityPearl3 from "@/assets/city-pearl-3.jpg";
-import cityPearl4 from "@/assets/city-pearl-4.jpg";
 import cityPearl5 from "@/assets/city-pearl-5.jpg";
 import cityPearl6 from "@/assets/city-pearl-6.jpg";
 import cityPearl7 from "@/assets/city-pearl-7.jpg";
@@ -65,7 +61,7 @@ export const projects: Project[] = [
   },
   {
     id: "city-pearl",
-    image: cityPearl1,
+    image: cityPearl5,
     title: "City Pearl Apartments",
     city: "Budapest",
     clients: ["CITY PEARL INTERNATIONAL Kft.", "APD"],
@@ -76,10 +72,6 @@ export const projects: Project[] = [
     services: ["Interior Design", "Architectural Design", "Landscape Design"],
     grayscale: true,
     gallery: [
-      { type: "image", src: cityPearl1 },
-      { type: "image", src: cityPearl2 },
-      { type: "image", src: cityPearl3 },
-      { type: "image", src: cityPearl4 },
       { type: "image", src: cityPearl5 },
       { type: "image", src: cityPearl6 },
       { type: "image", src: cityPearl7 },
