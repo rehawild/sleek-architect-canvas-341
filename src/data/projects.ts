@@ -217,7 +217,6 @@ export const projects: Project[] = [
     services: ["Interior Design", "Architectural Design"],
     gallery: [
       { type: "image", src: cinemaMammut1 },
-      { type: "image", src: cinemaMammut9 },
       { type: "image", src: cinemaMammut6 },
       { type: "image", src: cinemaMammut8 },
       { type: "image", src: cinemaMammut7 },
