@@ -130,8 +130,6 @@ export const projects: Project[] = [
     gallery: [
       { type: "video", src: familyHouseVideo2 },
       { type: "image", src: familyHouse1 },
-      { type: "image", src: familyHouse2 },
-      { type: "image", src: familyHouse3 },
       { type: "image", src: familyHouse4 },
       { type: "image", src: familyHouse5 },
       { type: "video", src: familyHouseVideo3 },
