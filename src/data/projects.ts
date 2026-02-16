@@ -82,7 +82,7 @@ export const projects: Project[] = [
       { type: "image", src: cityPearl17, colorOn: true },
       { type: "image", src: cityPearl6 },
       { type: "image", src: cityPearl7 },
-      { type: "image", src: cityPearl8 },
+      { type: "image", src: cityPearl8, colorOn: true },
       { type: "image", src: cityPearl9 },
       { type: "image", src: cityPearl10 },
       { type: "image", src: cityPearl12 },
