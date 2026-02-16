@@ -272,7 +272,6 @@ export const projects: Project[] = [
       { type: "image", src: skanska10 },
       { type: "image", src: skanska11 },
       { type: "image", src: skanska13 },
-      { type: "image", src: skanska14 },
     ],
   },
   {
