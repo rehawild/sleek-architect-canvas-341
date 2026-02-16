@@ -1,5 +1,4 @@
 import bmwFactory1 from "@/assets/bmw-factory-1.jpg";
-import bmwFactory2 from "@/assets/bmw-factory-2.jpg";
 import bmwFactoryVideo1 from "@/assets/bmw-factory-video-1.mp4";
 import cityPearl5 from "@/assets/city-pearl-5.jpg";
 import cityPearl6 from "@/assets/city-pearl-6.jpg";
