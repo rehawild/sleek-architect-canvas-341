@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/ContactForm";
+
 
 const Contact = () => {
   return (
@@ -9,7 +9,7 @@ const Contact = () => {
       <section className="pt-32 pb-32 bg-background flex-1">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-20">
+            <div className="max-w-xl">
               <div>
                 <h1 className="text-minimal text-muted-foreground mb-4">GET IN TOUCH</h1>
                 <h2 className="text-4xl md:text-6xl font-light text-architectural mb-12">
@@ -72,10 +72,6 @@ const Contact = () => {
                 </div>
               </div>
               
-              <div>
-                <h3 className="text-minimal text-muted-foreground mb-6">SEND US A MESSAGE</h3>
-                <ContactForm />
-              </div>
             </div>
             
             {/* Google Maps Embed */}
