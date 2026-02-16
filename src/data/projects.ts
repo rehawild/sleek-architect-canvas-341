@@ -80,13 +80,14 @@ export const projects: Project[] = [
     coverColorOn: true,
     gallery: [
       { type: "image", src: cityPearl17, colorOn: true },
+      { type: "video", src: cityPearlVideo2 },
+      { type: "image", src: cityPearl13 },
       { type: "image", src: cityPearl6 },
       { type: "image", src: cityPearl7 },
       { type: "image", src: cityPearl8, colorOn: true },
       { type: "image", src: cityPearl9 },
       { type: "image", src: cityPearl10 },
       { type: "image", src: cityPearl12 },
-      { type: "image", src: cityPearl13 },
       { type: "image", src: cityPearl14 },
       { type: "image", src: cityPearl15 },
       { type: "image", src: cityPearl18 },
@@ -94,7 +95,6 @@ export const projects: Project[] = [
       { type: "image", src: cityPearl20 },
       { type: "image", src: cityPearl21 },
       { type: "video", src: cityPearlVideo1 },
-      { type: "video", src: cityPearlVideo2 },
     ],
   },
   {
