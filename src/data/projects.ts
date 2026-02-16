@@ -58,6 +58,16 @@ import klotildPalace5 from "@/assets/klotild-palace-5.jpg";
 import klotildPalace6 from "@/assets/klotild-palace-6.jpg";
 import klotildPalace7 from "@/assets/klotild-palace-7.jpg";
 import klotildPalace8 from "@/assets/klotild-palace-8.jpg";
+import skanska1 from "@/assets/skanska-1.jpg";
+import skanska2 from "@/assets/skanska-2.jpg";
+import skanska3 from "@/assets/skanska-3.jpg";
+import skanska4 from "@/assets/skanska-4.jpg";
+import skanska5 from "@/assets/skanska-5.jpg";
+import skanska6 from "@/assets/skanska-6.jpg";
+import skanska7 from "@/assets/skanska-7.jpg";
+import skanska8 from "@/assets/skanska-8.jpg";
+import skanska9 from "@/assets/skanska-9.jpg";
+import skanska10 from "@/assets/skanska-10.jpg";
 
 export interface GalleryItem {
   type: "image" | "video";
@@ -221,6 +231,30 @@ export const projects: Project[] = [
       { type: "image", src: klotildPalace6 },
       { type: "image", src: klotildPalace7 },
       { type: "image", src: klotildPalace8 },
+    ],
+  },
+  {
+    id: "skanska-hold-utca",
+    image: skanska1,
+    title: "Skanska Commercial Building",
+    city: "Budapest",
+    clients: ["Skanska"],
+    category: "ARCHITECTURE",
+    year: "2023",
+    description:
+      "A modern commercial office building on Hold Utca in Budapest, blending contemporary glass facade design with the historic urban fabric. The project features a multi-level structure with underground parking, landscaped courtyard, and flexible office spaces designed to BREEAM sustainability standards.",
+    services: ["Architectural Design", "Project Management"],
+    gallery: [
+      { type: "image", src: skanska1 },
+      { type: "image", src: skanska2 },
+      { type: "image", src: skanska3 },
+      { type: "image", src: skanska4 },
+      { type: "image", src: skanska5 },
+      { type: "image", src: skanska6 },
+      { type: "image", src: skanska7 },
+      { type: "image", src: skanska8 },
+      { type: "image", src: skanska9 },
+      { type: "image", src: skanska10 },
     ],
   },
 ];
