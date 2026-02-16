@@ -68,6 +68,10 @@ import skanska7 from "@/assets/skanska-7.jpg";
 import skanska8 from "@/assets/skanska-8.jpg";
 import skanska9 from "@/assets/skanska-9.jpg";
 import skanska10 from "@/assets/skanska-10.jpg";
+import skanska11 from "@/assets/skanska-11.jpg";
+import skanska12 from "@/assets/skanska-12.jpg";
+import skanska13 from "@/assets/skanska-13.jpg";
+import skanska14 from "@/assets/skanska-14.jpg";
 
 export interface GalleryItem {
   type: "image" | "video";
@@ -255,6 +259,10 @@ export const projects: Project[] = [
       { type: "image", src: skanska8 },
       { type: "image", src: skanska9 },
       { type: "image", src: skanska10 },
+      { type: "image", src: skanska11 },
+      { type: "image", src: skanska12 },
+      { type: "image", src: skanska13 },
+      { type: "image", src: skanska14 },
     ],
   },
 ];
