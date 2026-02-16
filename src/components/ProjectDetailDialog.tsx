@@ -64,7 +64,7 @@ const ProjectDetailDialog = ({
         
         {/* Gallery Section */}
         <div className="relative aspect-[2/1] w-full bg-muted flex items-center justify-center">
-          {currentItem?.type === "video" ? <video src={currentItem.src} className="max-w-full max-h-full object-contain" controls autoPlay muted /> : currentItem ? <img src={currentItem.src} alt={`${project.title} - Image ${currentImageIndex + 1}`} className="max-w-full max-h-full object-contain" /> : null}
+          {currentItem?.type === "video" ? <video src={currentItem.src} className={`max-w-full max-h-full object-contain ${project.grayscale ? "grayscale" : ""}`} controls autoPlay muted /> : currentItem ? <img src={currentItem.src} alt={`${project.title} - Image ${currentImageIndex + 1}`} className={`max-w-full max-h-full object-contain ${project.grayscale ? "grayscale" : ""}`} /> : null}
           
           {project.gallery.length > 1 && <>
               <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm p-2 rounded-full hover:bg-background transition-colors" aria-label="Previous image">

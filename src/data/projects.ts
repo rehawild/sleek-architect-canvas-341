@@ -6,6 +6,16 @@ import cityPearl2 from "@/assets/city-pearl-2.jpg";
 import cityPearl3 from "@/assets/city-pearl-3.jpg";
 import cityPearl4 from "@/assets/city-pearl-4.jpg";
 import cityPearl5 from "@/assets/city-pearl-5.jpg";
+import cityPearl6 from "@/assets/city-pearl-6.jpg";
+import cityPearl7 from "@/assets/city-pearl-7.jpg";
+import cityPearl8 from "@/assets/city-pearl-8.jpg";
+import cityPearl9 from "@/assets/city-pearl-9.jpg";
+import cityPearl10 from "@/assets/city-pearl-10.jpg";
+import cityPearl11 from "@/assets/city-pearl-11.jpg";
+import cityPearl12 from "@/assets/city-pearl-12.jpg";
+import cityPearl13 from "@/assets/city-pearl-13.jpg";
+import cityPearl14 from "@/assets/city-pearl-14.jpg";
+import cityPearl15 from "@/assets/city-pearl-15.jpg";
 import cityPearlVideo1 from "@/assets/city-pearl-video-1.mp4";
 import cityPearlVideo2 from "@/assets/city-pearl-video-2.mp4";
 import familyHouse1 from "@/assets/family-house-1.jpg";
@@ -32,6 +42,7 @@ export interface Project {
   description: string;
   services: string[];
   gallery: GalleryItem[];
+  grayscale?: boolean;
 }
 
 export const projects: Project[] = [
@@ -63,12 +74,23 @@ export const projects: Project[] = [
     description:
       "A premium residential complex in the heart of Budapest featuring modern architecture with elegant glass facades. The development includes multiple high-rise towers offering panoramic city views, landscaped courtyards, and world-class amenities.",
     services: ["Interior Design", "Architectural Design", "Landscape Design"],
+    grayscale: true,
     gallery: [
       { type: "image", src: cityPearl1 },
       { type: "image", src: cityPearl2 },
       { type: "image", src: cityPearl3 },
       { type: "image", src: cityPearl4 },
       { type: "image", src: cityPearl5 },
+      { type: "image", src: cityPearl6 },
+      { type: "image", src: cityPearl7 },
+      { type: "image", src: cityPearl8 },
+      { type: "image", src: cityPearl9 },
+      { type: "image", src: cityPearl10 },
+      { type: "image", src: cityPearl11 },
+      { type: "image", src: cityPearl12 },
+      { type: "image", src: cityPearl13 },
+      { type: "image", src: cityPearl14 },
+      { type: "image", src: cityPearl15 },
       { type: "video", src: cityPearlVideo1 },
       { type: "video", src: cityPearlVideo2 },
     ],
