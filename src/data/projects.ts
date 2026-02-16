@@ -28,8 +28,14 @@ import cityPearlVideo2 from "@/assets/city-pearl-video-2.mp4";
 import familyHouse1 from "@/assets/family-house-1.jpg";
 import familyHouse2 from "@/assets/family-house-2.jpg";
 import familyHouse3 from "@/assets/family-house-3.jpg";
+import familyHouse4 from "@/assets/family-house-4.jpg";
+import familyHouse5 from "@/assets/family-house-5.jpg";
+import familyHouse6 from "@/assets/family-house-6.jpg";
+import familyHouse7 from "@/assets/family-house-7.jpg";
 import familyHouseVideo1 from "@/assets/family-house-video-1.mp4";
 import familyHouseVideo2 from "@/assets/family-house-video-2.mp4";
+import familyHouseVideo3 from "@/assets/family-house-video-3.mp4";
+import familyHouseVideo4 from "@/assets/family-house-video-4.mp4";
 import szellKalmanRestaurant1 from "@/assets/szell-kalman-restaurant-1.jpg";
 import szellKalmanRestaurant2 from "@/assets/szell-kalman-restaurant-2.jpg";
 
@@ -126,6 +132,12 @@ export const projects: Project[] = [
       { type: "image", src: familyHouse1 },
       { type: "image", src: familyHouse2 },
       { type: "image", src: familyHouse3 },
+      { type: "image", src: familyHouse4 },
+      { type: "image", src: familyHouse5 },
+      { type: "video", src: familyHouseVideo3 },
+      { type: "video", src: familyHouseVideo4 },
+      { type: "image", src: familyHouse6 },
+      { type: "image", src: familyHouse7 },
       { type: "video", src: familyHouseVideo1 },
     ],
   },
