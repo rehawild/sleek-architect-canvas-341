@@ -41,6 +41,15 @@ import szellKalmanRestaurant2 from "@/assets/szell-kalman-restaurant-2.jpg";
 import szellKalmanRestaurant3 from "@/assets/szell-kalman-restaurant-3.jpg";
 import szellKalmanRestaurant4 from "@/assets/szell-kalman-restaurant-4.jpg";
 import szellKalmanRestaurantVideo1 from "@/assets/szell-kalman-restaurant-video-1.mp4";
+import cinemaMammut1 from "@/assets/cinema-mammut-1.jpg";
+import cinemaMammut2 from "@/assets/cinema-mammut-2.jpg";
+import cinemaMammut3 from "@/assets/cinema-mammut-3.jpg";
+import cinemaMammut4 from "@/assets/cinema-mammut-4.jpg";
+import cinemaMammut5 from "@/assets/cinema-mammut-5.jpg";
+import cinemaMammut6 from "@/assets/cinema-mammut-6.jpg";
+import cinemaMammut7 from "@/assets/cinema-mammut-7.jpg";
+import cinemaMammut8 from "@/assets/cinema-mammut-8.jpg";
+import cinemaMammut9 from "@/assets/cinema-mammut-9.jpg";
 
 export interface GalleryItem {
   type: "image" | "video";
@@ -159,6 +168,29 @@ export const projects: Project[] = [
       { type: "image", src: szellKalmanRestaurant3 },
       { type: "image", src: szellKalmanRestaurant4 },
       { type: "video", src: szellKalmanRestaurantVideo1 },
+    ],
+  },
+  {
+    id: "cinema-mammut",
+    image: cinemaMammut1,
+    title: "Cinema Project",
+    city: "Budapest",
+    clients: ["Mammut Mall"],
+    category: "INTERIOR DESIGN",
+    year: "2018",
+    description:
+      "A luxurious cinema interior design project at Mammut Mall, Budapest. The design features premium lounge seating, dramatic lighting, and bespoke architectural details creating an immersive entertainment experience with carefully curated materials and finishes.",
+    services: ["Interior Design", "Architectural Design"],
+    gallery: [
+      { type: "image", src: cinemaMammut1 },
+      { type: "image", src: cinemaMammut9 },
+      { type: "image", src: cinemaMammut6 },
+      { type: "image", src: cinemaMammut8 },
+      { type: "image", src: cinemaMammut7 },
+      { type: "image", src: cinemaMammut2 },
+      { type: "image", src: cinemaMammut4 },
+      { type: "image", src: cinemaMammut3 },
+      { type: "image", src: cinemaMammut5 },
     ],
   },
 ];
