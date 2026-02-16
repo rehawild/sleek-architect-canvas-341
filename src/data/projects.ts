@@ -6,6 +6,7 @@ import bmwFactory5 from "@/assets/bmw-factory-5.jpg";
 import bmwFactory6 from "@/assets/bmw-factory-6.jpg";
 import bmwFactory7 from "@/assets/bmw-factory-7.jpg";
 import bmwFactoryVideo1 from "@/assets/bmw-factory-video-1.mp4";
+import cityPearl1 from "@/assets/city-pearl-1.jpg";
 import cityPearl5 from "@/assets/city-pearl-5.jpg";
 import cityPearl6 from "@/assets/city-pearl-6.jpg";
 import cityPearl7 from "@/assets/city-pearl-7.jpg";
@@ -68,6 +69,7 @@ export const projects: Project[] = [
     gallery: [
       { type: "image", src: bmwFactory1 },
       { type: "video", src: bmwFactoryVideo1 },
+      { type: "image", src: bmwFactory2 },
       { type: "image", src: bmwFactory3 },
       { type: "image", src: bmwFactory4 },
       { type: "image", src: bmwFactory5 },
@@ -90,6 +92,7 @@ export const projects: Project[] = [
     coverColorOn: true,
     gallery: [
       { type: "image", src: cityPearl17, colorOn: true },
+      { type: "image", src: cityPearl1 },
       { type: "video", src: cityPearlVideo2 },
       { type: "image", src: cityPearl13 },
       { type: "image", src: cityPearl6 },
