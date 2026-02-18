@@ -76,6 +76,7 @@ import skanska13 from "@/assets/skanska-13.jpg";
 import skanska14 from "@/assets/skanska-14.jpg";
 import takenaka1 from "@/assets/takenaka-1.jpg";
 import takenaka2 from "@/assets/takenaka-2.jpg";
+import takenaka3 from "@/assets/takenaka-3.jpg";
 import tinyHouse1 from "@/assets/tiny-house-1.jpg";
 import tinyHouse2 from "@/assets/tiny-house-2.jpg";
 import tinyHouse3 from "@/assets/tiny-house-3.jpg";
@@ -276,7 +277,7 @@ export const projects: Project[] = [
   },
   {
     id: "takenaka-warehouse",
-    image: takenaka2,
+    image: takenaka3,
     title: "Takenaka Warehouse",
     city: "Budapest",
     clients: ["Takenaka"],
@@ -287,7 +288,7 @@ export const projects: Project[] = [
     services: ["Architectural Design", "Construction Supervision"],
     gallery: [
       { type: "image", src: takenaka1 },
-      { type: "image", src: takenaka2 },
+      { type: "image", src: takenaka3 },
     ],
   },
   {
