@@ -1,36 +1,34 @@
 
 
-# Fix Social Media Preview (WhatsApp Thumbnail)
+# Add Google Analytics (gtag.js) Tracking
 
-## The Problem
-When you share `tapanpartners.com` on WhatsApp (or Facebook, LinkedIn, etc.), it shows "ARCH STUDIO - Minimal Architecture & Design" with the old template image. This is because `index.html` still has the old template's meta tags.
+## What we'll do
 
-## What Will Change
+Add the Google Analytics tracking snippet (measurement ID: `G-WRGK8MG29G`) to `index.html` so every page of your site is tracked automatically.
 
-Update `index.html` with:
-- **Title**: "Tapan & Partners" (instead of "ARCH STUDIO")
-- **Description**: A proper description of the firm
-- **Author**: "Tapan & Partners"
-- **OG Title & Description**: Updated for WhatsApp/social previews
-- **OG Image**: A screenshot of the actual site (we can upload one or take a fresh one)
-- **Twitter tags**: Updated to match
+## Changes
 
-## Important Note
-After this change is deployed, WhatsApp and other platforms **cache** old previews. It may take some time for the new preview to show up. You can also try pasting the link fresh in a new chat.
+**File: `index.html`**
+- Insert the Google tag script right after the opening `<head>` tag (before the charset meta), exactly as Google recommends:
+  - An async script loading `gtag.js`
+  - The inline configuration script with your measurement ID
+
+This is a single, small change -- no other files need to be modified. Since this is a single-page app, all route navigations will be tracked automatically by gtag.js.
 
 ## Technical Details
 
-**File to modify:** `index.html`
+The following snippet will be added at the top of the `<head>` section:
 
-All 7 meta tags in the `<head>` section will be updated:
-1. `<title>` tag
-2. `<meta name="description">`
-3. `<meta name="author">`
-4. `<meta property="og:title">`
-5. `<meta property="og:description">`
-6. `<meta property="og:image">` (new screenshot needed)
-7. `<meta name="twitter:site">` (remove @lovable_dev reference)
-8. `<meta name="twitter:image">` (new screenshot)
+```html
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WRGK8MG29G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WRGK8MG29G');
+</script>
+```
 
-I will ask you what description you'd like for the firm before making changes.
+**Note:** After publishing, it may take 24-48 hours for data to start appearing in your Google Analytics dashboard. The tracking will only work on your published domain (`tapanpartners.com`), not in the Lovable preview.
 
