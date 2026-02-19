@@ -101,7 +101,12 @@ const Footer = () => {
           {/* Copyright */}
           <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">© {currentYear} Tapan & Partners. All rights reserved.</p>
-            <p className="text-sm text-muted-foreground">Budapest, Hungary</p>
+            <div className="flex items-center gap-4">
+              <Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300">
+                Privacy Policy
+              </Link>
+              <p className="text-sm text-muted-foreground">Budapest, Hungary</p>
+            </div>
           </div>
         </div>
       </div>
