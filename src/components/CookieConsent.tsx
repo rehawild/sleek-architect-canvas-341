@@ -44,9 +44,7 @@ const CookieConsent = () => {
         <p className="text-sm text-muted-foreground flex-1">
           We use cookies to analyze site traffic and improve your experience. By accepting, you consent to the use of analytics cookies.{" "}
           <a
-            href="https://policies.google.com/technologies/cookies"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/privacy-policy"
             className="underline text-foreground hover:text-foreground/80"
           >
             Learn more

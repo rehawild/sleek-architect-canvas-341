@@ -19,6 +19,7 @@ import Consultation from "./pages/services/Consultation";
 import FurnitureDesign from "./pages/services/FurnitureDesign";
 import ScrollToTop from "./components/ScrollToTop";
 import CookieConsent from "./components/CookieConsent";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const queryClient = new QueryClient();
 
