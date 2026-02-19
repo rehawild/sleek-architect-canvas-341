@@ -18,6 +18,7 @@ import Construction from "./pages/services/Construction";
 import Consultation from "./pages/services/Consultation";
 import FurnitureDesign from "./pages/services/FurnitureDesign";
 import ScrollToTop from "./components/ScrollToTop";
+import CookieConsent from "./components/CookieConsent";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <CookieConsent />
     </TooltipProvider>
   </QueryClientProvider>
 );
