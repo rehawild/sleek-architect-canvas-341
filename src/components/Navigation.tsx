@@ -2,17 +2,20 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   const navLinks = [
-    { href: "/", label: "HOME" },
-    { href: "/work", label: "WORK" },
-    { href: "/services", label: "SERVICES" },
-    { href: "/about", label: "ABOUT" },
-    { href: "/contact", label: "CONTACT" },
+    { href: "/", label: t("nav.home") },
+    { href: "/work", label: t("nav.work") },
+    { href: "/services", label: t("nav.services") },
+    { href: "/about", label: t("nav.about") },
+    { href: "/contact", label: t("nav.contact") },
   ];
 
   const isActive = (path: string) => {
@@ -53,6 +56,7 @@ const Navigation = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-4">
+          <LanguageSwitcher />
           <ThemeToggle />
         </div>
 
@@ -69,7 +73,7 @@ const Navigation = () => {
       {/* Mobile Menu */}
       <div 
         className={`md:hidden bg-background border-b border-border overflow-hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="container mx-auto px-6 py-6 space-y-4">
@@ -88,8 +92,9 @@ const Navigation = () => {
             </Link>
           ))}
           
-          {/* Mobile Theme Toggle */}
-          <div className="pt-4 border-t border-border">
+          {/* Mobile Language & Theme */}
+          <div className="pt-4 border-t border-border flex items-center justify-between">
+            <LanguageSwitcher />
             <ThemeToggle />
           </div>
         </div>
