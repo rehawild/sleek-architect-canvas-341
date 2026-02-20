@@ -6,9 +6,11 @@ import Portfolio from "@/components/Portfolio";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Index = () => {
-  useSEO({ title: "Tapan & Partners — Architecture & Interior Design in Budapest", description: "Budapest-based architecture and interior design studio specializing in residential, commercial, and renovation projects." });
+  const { t } = useLanguage();
+  useSEO({ title: t("seo.homeTitle"), description: t("seo.homeDesc") });
   return (
     <div className="min-h-screen">
       <Navigation />
