@@ -2,8 +2,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import serviceImage from "@/assets/service-interior.jpg";
+import { useSEO } from "@/hooks/useSEO";
 
 const InteriorDesign = () => {
+  useSEO({ title: "Interior Design — Tapan & Partners", description: "Professional interior design services in Budapest. Curated environments balancing function with refined aesthetics." });
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />

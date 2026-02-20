@@ -4,8 +4,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ProjectDetailDialog from "@/components/ProjectDetailDialog";
 import { projects, type Project } from "@/data/projects";
+import { useSEO } from "@/hooks/useSEO";
 
 const Work = () => {
+  useSEO({ title: "Our Work — Tapan & Partners", description: "Explore our portfolio of architectural and interior design projects across residential, commercial, and industrial sectors in Budapest." });
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);

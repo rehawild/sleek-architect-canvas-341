@@ -8,8 +8,10 @@ import renovationImg from "@/assets/service-renovation.jpg";
 import constructionImg from "@/assets/service-construction.jpg";
 import consultationImg from "@/assets/service-consultation.jpg";
 import furnitureImg from "@/assets/service-furniture.jpg";
+import { useSEO } from "@/hooks/useSEO";
 
 const Services = () => {
+  useSEO({ title: "Services — Tapan & Partners", description: "Architectural design, interior design, renovation, construction management, consultation, and furniture design services in Budapest." });
   const services = [
     {
       number: "01",

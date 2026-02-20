@@ -2,8 +2,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import serviceImage from "@/assets/service-consultation.jpg";
+import { useSEO } from "@/hooks/useSEO";
 
 const Consultation = () => {
+  useSEO({ title: "Consultation & Advisory — Tapan & Partners", description: "Architecture and design consultation in Budapest. Strategic guidance for design direction, feasibility, and planning." });
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
