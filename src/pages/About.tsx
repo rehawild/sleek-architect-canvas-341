@@ -1,7 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useSEO } from "@/hooks/useSEO";
 
 const About = () => {
+  useSEO({ title: "About — Tapan & Partners", description: "Meet the team behind Tapan & Partners. Founded in 2024, we create thoughtful architectural and interior design solutions in Budapest." });
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />

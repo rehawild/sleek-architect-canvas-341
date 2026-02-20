@@ -2,8 +2,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import serviceImage from "@/assets/service-architectural.jpg";
+import { useSEO } from "@/hooks/useSEO";
 
 const ArchitecturalDesign = () => {
+  useSEO({ title: "Architectural Design — Tapan & Partners", description: "Custom architectural design services in Budapest. From concept to completion, we create spaces shaped by context and craft." });
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />

@@ -2,8 +2,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import serviceImage from "@/assets/service-construction.jpg";
+import { useSEO } from "@/hooks/useSEO";
 
 const Construction = () => {
+  useSEO({ title: "Construction & Project Management — Tapan & Partners", description: "Construction supervision and project management in Budapest. Seamless execution from concept to completion." });
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />

@@ -2,8 +2,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import serviceImage from "@/assets/service-renovation.jpg";
+import { useSEO } from "@/hooks/useSEO";
 
 const Renovation = () => {
+  useSEO({ title: "Renovation & Adaptive Reuse — Tapan & Partners", description: "Renovation and adaptive reuse services in Budapest. Breathing new life into existing structures with modern sensibility." });
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />

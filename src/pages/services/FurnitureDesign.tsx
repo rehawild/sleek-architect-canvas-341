@@ -6,8 +6,10 @@ import { useTheme } from "@/components/ThemeProvider";
 import mekanLogo from "@/assets/mekan-logo.png";
 import mekanLogoWhite from "@/assets/mekan-logo-white.png";
 import serviceImage from "@/assets/service-furniture.jpg";
+import { useSEO } from "@/hooks/useSEO";
 
 const FurnitureDesign = () => {
+  useSEO({ title: "Furniture Design — Tapan & Partners", description: "Bespoke furniture design in partnership with Mekan Furniture. Custom pieces crafted for your space." });
   const { theme } = useTheme();
   const prefersDark =
     typeof window !== "undefined" &&

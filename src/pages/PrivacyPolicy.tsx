@@ -1,7 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { useSEO } from "@/hooks/useSEO";
 
 const PrivacyPolicy = () => {
+  useSEO({ title: "Privacy Policy — Tapan & Partners", description: "Privacy policy for Tapan & Partners website, covering data collection, cookies, and your GDPR rights." });
   return (
     <div className="min-h-screen bg-background">
       <Navigation />

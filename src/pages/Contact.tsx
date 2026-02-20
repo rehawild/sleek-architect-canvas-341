@@ -1,8 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-
+import { useSEO } from "@/hooks/useSEO";
 
 const Contact = () => {
+  useSEO({ title: "Contact — Tapan & Partners", description: "Get in touch with Tapan & Partners. Visit our design office and showroom at Iranyi u. 18, Budapest." });
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
