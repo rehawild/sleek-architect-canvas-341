@@ -1,101 +1,74 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const PrivacyPolicy = () => {
-  useSEO({ title: "Privacy Policy — Tapan & Partners", description: "Privacy policy for Tapan & Partners website, covering data collection, cookies, and your GDPR rights." });
+  const { t } = useLanguage();
+  useSEO({ title: t("seo.privacyTitle"), description: t("seo.privacyDesc") });
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <main className="container mx-auto px-6 pt-32 pb-20 max-w-3xl">
-        <h1 className="text-3xl md:text-4xl font-light text-foreground mb-12">Privacy Policy</h1>
+        <h1 className="text-3xl md:text-4xl font-light text-foreground mb-12">{t("privacy.title")}</h1>
 
         <div className="space-y-8 text-muted-foreground leading-relaxed text-sm">
-          <p>Last updated: February 19, 2026</p>
+          <p>{t("privacy.lastUpdated")}</p>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-medium text-foreground">1. Who We Are</h2>
+            <h2 className="text-lg font-medium text-foreground">{t("privacy.s1Title")}</h2>
             <p>
-              Tapan & Partners is an architecture firm based in Budapest, Hungary (1056, Irányi u. 18).
-              You can reach us at{" "}
-              <a href="mailto:admin@tapanpartners.com" className="underline text-foreground hover:text-foreground/80">
-                admin@tapanpartners.com
-              </a>.
+              {t("privacy.s1Text")}{" "}
+              <a href="mailto:admin@tapanpartners.com" className="underline text-foreground hover:text-foreground/80">admin@tapanpartners.com</a>.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-medium text-foreground">2. What Data We Collect</h2>
-            <p>
-              This website does not require registration and does not collect personal data such as names,
-              emails, or payment information through the site itself. The only data collected is anonymous
-              usage data through Google Analytics (see below) and any information you voluntarily provide
-              via our contact form.
-            </p>
+            <h2 className="text-lg font-medium text-foreground">{t("privacy.s2Title")}</h2>
+            <p>{t("privacy.s2Text")}</p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-medium text-foreground">3. Google Analytics</h2>
-            <p>
-              We use Google Analytics (measurement ID: G-WRGK8MG29G) to understand how visitors interact
-              with our website. Google Analytics collects anonymous data such as:
-            </p>
+            <h2 className="text-lg font-medium text-foreground">{t("privacy.s3Title")}</h2>
+            <p>{t("privacy.s3Text")}</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
-              <li>Pages visited and time spent on each page</li>
-              <li>Approximate geographic location (country/city level)</li>
-              <li>Browser type, device, and operating system</li>
-              <li>Referring website or search terms</li>
+              <li>{t("privacy.s3List1")}</li>
+              <li>{t("privacy.s3List2")}</li>
+              <li>{t("privacy.s3List3")}</li>
+              <li>{t("privacy.s3List4")}</li>
             </ul>
             <p>
-              This data is processed by Google LLC. For more information, see{" "}
-              <a
-                href="https://policies.google.com/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-foreground hover:text-foreground/80"
-              >
-                Google's Privacy Policy
-              </a>.
+              {t("privacy.s3Text2")}{" "}
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline text-foreground hover:text-foreground/80">{t("privacy.s3Link")}</a>.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-medium text-foreground">4. Cookies</h2>
+            <h2 className="text-lg font-medium text-foreground">{t("privacy.s4Title")}</h2>
             <p>
-              Cookies are small text files stored on your device. This website uses cookies only for
-              Google Analytics. Analytics cookies are <strong className="text-foreground">not set</strong> unless
-              you explicitly accept them via our cookie consent banner.
+              {t("privacy.s4Text")} <strong className="text-foreground">{t("privacy.s4Bold")}</strong> {t("privacy.s4Text2")}
             </p>
-            <p>
-              You can change your cookie preferences at any time by clearing your browser's local storage
-              or cookies for this site and revisiting.
-            </p>
+            <p>{t("privacy.s4Text3")}</p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-medium text-foreground">5. Your Rights (GDPR)</h2>
-            <p>
-              Under the EU General Data Protection Regulation, you have the right to:
-            </p>
+            <h2 className="text-lg font-medium text-foreground">{t("privacy.s5Title")}</h2>
+            <p>{t("privacy.s5Text")}</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
-              <li>Decline analytics cookies (via the consent banner)</li>
-              <li>Request information about any personal data we hold</li>
-              <li>Request deletion of your data</li>
+              <li>{t("privacy.s5List1")}</li>
+              <li>{t("privacy.s5List2")}</li>
+              <li>{t("privacy.s5List3")}</li>
             </ul>
             <p>
-              To exercise these rights, contact us at{" "}
-              <a href="mailto:admin@tapanpartners.com" className="underline text-foreground hover:text-foreground/80">
-                admin@tapanpartners.com
-              </a>.
+              {t("privacy.s5Text2")}{" "}
+              <a href="mailto:admin@tapanpartners.com" className="underline text-foreground hover:text-foreground/80">admin@tapanpartners.com</a>.
             </p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-lg font-medium text-foreground">6. Changes</h2>
-            <p>
-              We may update this policy from time to time. Any changes will be posted on this page with
-              an updated revision date.
-            </p>
+            <h2 className="text-lg font-medium text-foreground">{t("privacy.s6Title")}</h2>
+            <p>{t("privacy.s6Text")}</p>
           </section>
         </div>
       </main>

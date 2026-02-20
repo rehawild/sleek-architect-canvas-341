@@ -3,82 +3,35 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import serviceImage from "@/assets/service-interior.jpg";
 import { useSEO } from "@/hooks/useSEO";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const InteriorDesign = () => {
-  useSEO({ title: "Interior Design — Tapan & Partners", description: "Professional interior design services in Budapest. Curated environments balancing function with refined aesthetics." });
+  const { t } = useLanguage();
+  useSEO({ title: t("seo.interiorTitle"), description: t("seo.interiorDesc") });
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
-      {/* Hero Image */}
       <div className="w-full h-[50vh] relative overflow-hidden">
-        <img 
-          src={serviceImage} 
-          alt="Interior Design" 
-          className="w-full h-full object-cover"
-        />
+        <img src={serviceImage} alt={t("interior.title")} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 to-background" />
       </div>
-      
       <section className="py-20 bg-background flex-1">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <Breadcrumb 
-              items={[
-                { label: "Services", href: "/services" },
-                { label: "Interior Design" }
-              ]} 
-            />
-            
+            <Breadcrumb items={[{ label: t("nav.services"), href: "/services" }, { label: t("interior.breadcrumb") }]} />
             <div className="mb-12">
               <span className="text-minimal text-muted-foreground">02</span>
-              <h1 className="text-4xl md:text-6xl font-light text-architectural mt-4 mb-8">
-                Interior Design
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Curated environments that balance function with refined aesthetics
-              </p>
+              <h1 className="text-4xl md:text-6xl font-light text-architectural mt-4 mb-8">{t("interior.title")}</h1>
+              <p className="text-xl text-muted-foreground leading-relaxed">{t("interior.subtitle")}</p>
             </div>
-            
             <div className="space-y-12">
-              <div>
-                <h2 className="text-2xl font-light text-architectural mb-4">Our Philosophy</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Interior spaces should feel like natural extensions of their inhabitants. 
-                  We create environments that are both beautiful and livable, where every 
-                  detail serves a purpose and contributes to the whole.
-                </p>
-              </div>
-              
-              <div>
-                <h2 className="text-2xl font-light text-architectural mb-4">What We Offer</h2>
+              <div><h2 className="text-2xl font-light text-architectural mb-4">{t("interior.h1")}</h2><p className="text-muted-foreground leading-relaxed">{t("interior.p1")}</p></div>
+              <div><h2 className="text-2xl font-light text-architectural mb-4">{t("interior.h2")}</h2>
                 <ul className="space-y-4 text-muted-foreground">
-                  <li className="border-l-2 border-architectural pl-6">
-                    Space planning and layout optimization
-                  </li>
-                  <li className="border-l-2 border-architectural pl-6">
-                    Material and finish selection
-                  </li>
-                  <li className="border-l-2 border-architectural pl-6">
-                    Custom furniture design
-                  </li>
-                  <li className="border-l-2 border-architectural pl-6">
-                    Lighting design
-                  </li>
-                  <li className="border-l-2 border-architectural pl-6">
-                    Art and accessory curation
-                  </li>
+                  {["offer1","offer2","offer3","offer4","offer5"].map(k => <li key={k} className="border-l-2 border-architectural pl-6">{t(`interior.${k}`)}</li>)}
                 </ul>
               </div>
-              
-              <div>
-                <h2 className="text-2xl font-light text-architectural mb-4">Our Process</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  We begin with understanding how you live and work. From there, we develop 
-                  concepts that reflect your personality while introducing unexpected elements 
-                  that elevate the everyday experience.
-                </p>
-              </div>
+              <div><h2 className="text-2xl font-light text-architectural mb-4">{t("interior.h3")}</h2><p className="text-muted-foreground leading-relaxed">{t("interior.p3")}</p></div>
             </div>
           </div>
         </div>
@@ -87,5 +40,4 @@ const InteriorDesign = () => {
     </div>
   );
 };
-
 export default InteriorDesign;

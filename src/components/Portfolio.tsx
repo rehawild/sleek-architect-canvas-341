@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import ProjectDetailDialog from "@/components/ProjectDetailDialog";
 import { projects, type Project } from "@/data/projects";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const { t } = useLanguage();
 
-  // Featured projects for homepage - BMW and City Pearl
   const featuredProjects = projects.filter(
     (project) => project.id === "bmw-factory" || project.id === "city-pearl"
   );
@@ -23,9 +24,9 @@ const Portfolio = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20">
-            <h2 className="text-minimal text-muted-foreground mb-4">SELECTED WORK</h2>
+            <h2 className="text-minimal text-muted-foreground mb-4">{t("portfolio.heading")}</h2>
             <h3 className="text-4xl md:text-6xl font-light text-architectural">
-              Our Projects
+              {t("portfolio.subheading")}
             </h3>
           </div>
           
@@ -44,10 +45,9 @@ const Portfolio = () => {
                   />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  {/* View Project Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="bg-background/90 backdrop-blur-sm px-6 py-3 flex items-center space-x-2">
-                      <span className="text-minimal text-foreground">VIEW PROJECT</span>
+                      <span className="text-minimal text-foreground">{t("portfolio.viewProject")}</span>
                       <ArrowUpRight className="w-4 h-4 text-foreground" />
                     </div>
                   </div>
@@ -80,7 +80,7 @@ const Portfolio = () => {
               to="/work" 
               className="inline-flex items-center gap-2 text-lg hover:text-muted-foreground transition-colors duration-300 group"
             >
-              View All Work
+              {t("portfolio.viewAll")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>

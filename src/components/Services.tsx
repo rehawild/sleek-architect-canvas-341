@@ -1,30 +1,32 @@
-// Services homepage teaser
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import architecturalImg from "@/assets/service-architectural.jpg";
 import constructionImg from "@/assets/service-construction.jpg";
 import furnitureImg from "@/assets/service-furniture.jpg";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Services = () => {
+  const { t } = useLanguage();
+
   const featuredServices = [
     {
       number: "01",
-      title: "Architectural Design",
-      description: "Thoughtful spaces shaped by context, craft, and clarity of vision",
+      title: t("servicesTeaser.s1.title"),
+      description: t("servicesTeaser.s1.description"),
       slug: "architectural-design",
       image: architecturalImg
     },
     {
       number: "02", 
-      title: "Construction · Project Management",
-      description: "Seamless execution from concept to completion, on time and on budget",
+      title: t("servicesTeaser.s2.title"),
+      description: t("servicesTeaser.s2.description"),
       slug: "construction",
       image: constructionImg
     },
     {
       number: "03",
-      title: "Furniture Design",
-      description: "Bespoke furniture solutions in partnership with Mekan Furniture",
+      title: t("servicesTeaser.s3.title"),
+      description: t("servicesTeaser.s3.description"),
       slug: "furniture-design",
       image: furnitureImg
     }
@@ -35,9 +37,9 @@ const Services = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20">
-            <h2 className="text-minimal text-muted-foreground mb-4">SERVICES</h2>
+            <h2 className="text-minimal text-muted-foreground mb-4">{t("servicesTeaser.heading")}</h2>
             <h3 className="text-4xl md:text-6xl font-light text-architectural">
-              What We Do
+              {t("servicesTeaser.subheading")}
             </h3>
           </div>
           
@@ -78,7 +80,7 @@ const Services = () => {
               to="/services" 
               className="inline-flex items-center gap-2 text-lg hover:text-muted-foreground transition-colors duration-300 group"
             >
-              View All Services
+              {t("servicesTeaser.viewAll")}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
