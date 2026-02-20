@@ -3,82 +3,35 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import serviceImage from "@/assets/service-construction.jpg";
 import { useSEO } from "@/hooks/useSEO";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Construction = () => {
-  useSEO({ title: "Construction & Project Management — Tapan & Partners", description: "Construction supervision and project management in Budapest. Seamless execution from concept to completion." });
+  const { t } = useLanguage();
+  useSEO({ title: t("seo.constructionTitle"), description: t("seo.constructionDesc") });
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
-      {/* Hero Image */}
       <div className="w-full h-[50vh] relative overflow-hidden">
-        <img 
-          src={serviceImage} 
-          alt="Construction and Project Management" 
-          className="w-full h-full object-cover"
-        />
+        <img src={serviceImage} alt={t("construction.title")} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 to-background" />
       </div>
-      
       <section className="py-20 bg-background flex-1">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <Breadcrumb 
-              items={[
-                { label: "Services", href: "/services" },
-                { label: "Construction" }
-              ]} 
-            />
-            
+            <Breadcrumb items={[{ label: t("nav.services"), href: "/services" }, { label: t("construction.breadcrumb") }]} />
             <div className="mb-12">
               <span className="text-minimal text-muted-foreground">04</span>
-              <h1 className="text-4xl md:text-6xl font-light text-architectural mt-4 mb-8">
-                Construction · Project Management
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Seamless execution from concept to completion, on time and on budget
-              </p>
+              <h1 className="text-4xl md:text-6xl font-light text-architectural mt-4 mb-8">{t("construction.title")}</h1>
+              <p className="text-xl text-muted-foreground leading-relaxed">{t("construction.subtitle")}</p>
             </div>
-            
             <div className="space-y-12">
-              <div>
-                <h2 className="text-2xl font-light text-architectural mb-4">End-to-End Delivery</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Great design requires great execution. Our project management services 
-                  ensure that the vision developed during design is realized with precision, 
-                  quality, and efficiency throughout the construction process.
-                </p>
-              </div>
-              
-              <div>
-                <h2 className="text-2xl font-light text-architectural mb-4">What We Offer</h2>
+              <div><h2 className="text-2xl font-light text-architectural mb-4">{t("construction.h1")}</h2><p className="text-muted-foreground leading-relaxed">{t("construction.p1")}</p></div>
+              <div><h2 className="text-2xl font-light text-architectural mb-4">{t("construction.h2")}</h2>
                 <ul className="space-y-4 text-muted-foreground">
-                  <li className="border-l-2 border-architectural pl-6">
-                    Contractor selection and tendering
-                  </li>
-                  <li className="border-l-2 border-architectural pl-6">
-                    Budget development and cost control
-                  </li>
-                  <li className="border-l-2 border-architectural pl-6">
-                    Schedule management
-                  </li>
-                  <li className="border-l-2 border-architectural pl-6">
-                    Quality assurance and site supervision
-                  </li>
-                  <li className="border-l-2 border-architectural pl-6">
-                    Coordination with consultants and authorities
-                  </li>
+                  {["offer1","offer2","offer3","offer4","offer5"].map(k => <li key={k} className="border-l-2 border-architectural pl-6">{t(`construction.${k}`)}</li>)}
                 </ul>
               </div>
-              
-              <div>
-                <h2 className="text-2xl font-light text-architectural mb-4">Our Commitment</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  We maintain rigorous oversight throughout construction, ensuring that 
-                  materials, craftsmanship, and details meet our exacting standards. 
-                  The result is a finished project that matches the original vision.
-                </p>
-              </div>
+              <div><h2 className="text-2xl font-light text-architectural mb-4">{t("construction.h3")}</h2><p className="text-muted-foreground leading-relaxed">{t("construction.p3")}</p></div>
             </div>
           </div>
         </div>
@@ -87,5 +40,4 @@ const Construction = () => {
     </div>
   );
 };
-
 export default Construction;
